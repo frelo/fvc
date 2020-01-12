@@ -1,0 +1,925 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://videocataloger.com/2015" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="VideoCatalogService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:import namespace="http://videocataloger.com/2015" location="" />
+  <wsdl:types />
+  <wsdl:binding name="BasicHttpBinding_IVideoCatalogService" type="i0:IVideoCatalogService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetActiveCatalogInstance">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetActiveCatalogInstance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetActiveCatalogInstance">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetActiveCatalogInstance" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVideo">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/AddVideo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveVideoByID">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/RemoveVideoByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVideoFile">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/DeleteVideoFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="MergeVideo">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/MergeVideo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SearchVideos">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SearchVideos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchVideosFromString">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SearchVideosFromString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPropertyMeta">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetPropertyMeta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetPropertyMeta">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetPropertyMeta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePropertyMeta">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/RemovePropertyMeta" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoFileExtendedProperty">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetVideoFileExtendedProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVideoFileExtendedProperty">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetVideoFileExtendedProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetThumbnailExtendedProperty">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetThumbnailExtendedProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetThumbnailExtendedProperty">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetThumbnailExtendedProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SearchThumbnails">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SearchThumbnails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoFileID">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetVideoFileID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoFileEntry">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetVideoFileEntry" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoFileImage">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetVideoFileImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVideoFileImage">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetVideoFileImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetVideoGenre">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetVideoGenre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetVideoProperty">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetVideoProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateVideoFilePath">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/UpdateVideoFilePath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagsForVideos">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetTagsForVideos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTagsFromVideo">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/RemoveTagsFromVideo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="TagVideo">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/TagVideo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVideoTag">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/CreateVideoTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVideoTagFromCatalog">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/DeleteVideoTagFromCatalog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteThumbTagFromCatalog">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/DeleteThumbTagFromCatalog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetVideoTagProperty">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetVideoTagProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVideoTags">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetAllVideoTags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetRandomVideoFileEntries">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetRandomVideoFileEntries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ImportActors">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/ImportActors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllActorTags">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetAllActorTags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActorTags">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetActorTags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetActorTagProperty">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetActorTagProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetActorTagID">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetActorTagID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateActorTag">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/CreateActorTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActors">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetActors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActorsForVideo">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetActorsForVideo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddActorToDB">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/AddActorToDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateActor">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/UpdateActor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="AddActorTag">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/AddActorTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="TagActor">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/TagActor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveActorCompanionImage">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/RemoveActorCompanionImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteActorTag">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/DeleteActorTag" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="AddActorCompanionImage">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/AddActorCompanionImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActorPortrait">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetActorPortrait" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActor">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetActor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsActorUsed">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/IsActorUsed" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteActor">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/DeleteActor" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="AddActorToVideo">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/AddActorToVideo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveActorFromVideo">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/RemoveActorFromVideo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetCast">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetCast" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActorCompanionImages">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetActorCompanionImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaggedActors">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/DeleteTaggedActors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetTagsForThumbs">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetTagsForThumbs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveTagsFromThumbnails">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/RemoveTagsFromThumbnails" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVideoThumbnail">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/AddVideoThumbnail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="TagThumbs">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/TagThumbs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetThumbnailImageFromID">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetThumbnailImageFromID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetThumbnail">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetThumbnail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllThumbnailTags">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetAllThumbnailTags" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteThumbnail">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/DeleteThumbnail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetThumbnailsForVideo">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetThumbnailsForVideo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetThumbnailsIDsForVideo">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetThumbnailsIDsForVideo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllCoverImages">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetAllCoverImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCoverImagesForVideo">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetCoverImagesForVideo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddCompanionImages">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/AddCompanionImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="AddCompanionImage">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/AddCompanionImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveVideoCompanionImage">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/RemoveVideoCompanionImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompanionImageID">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetCompanionImageID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoFileIDForCompanionImage">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetVideoFileIDForCompanionImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCoverImages">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetCoverImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCompanionImagePath">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/UpdateCompanionImagePath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetCompanionImagePath">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetCompanionImagePath" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoCompanionImages">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetVideoCompanionImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVideoCompanionImages">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetAllVideoCompanionImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteImageCompanionFile">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/DeleteImageCompanionFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveImageFile">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/RemoveImageFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="CreateArchiveMedia">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/CreateArchiveMedia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteArchive">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/DeleteArchive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateArchiveMedia">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/UpdateArchiveMedia" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchive">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetArchive" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchives">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetArchives" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetArchivesForVideo">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetArchivesForVideo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ArchiveVideo">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/ArchiveVideo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTagNames">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetAllTagNames" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGenres">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetGenres" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RenameGenre">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/RenameGenre" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNofVideos">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetNofVideos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNofActors">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetNofActors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNofCompanionImages">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetNofCompanionImages" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoTagUse">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetVideoTagUse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetThumbTagUse">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetThumbTagUse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetActorTagUse">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetActorTagUse" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSetting">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetSetting">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetVideosInBin">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetVideosInBin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetBinsInBin">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetBinsInBin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddVideoToBin">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/AddVideoToBin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveVideoFromBin">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/RemoveVideoFromBin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveBin">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/RemoveBin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="CreateBin">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/CreateBin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetBinProperty">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetBinProperty" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllBins">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetAllBins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetVideoClip">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetVideoClip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoClip">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetVideoClip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteVideoClip">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/DeleteVideoClip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="CreateVideoPlaylist">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/CreateVideoPlaylist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllVideoPlaylists">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetAllVideoPlaylists" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePlaylist">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/DeletePlaylist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetClipToPlaylist">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetClipToPlaylist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlaylistClip">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePlaylistClip">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/RemovePlaylistClip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlaylistClipIDs">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipIDs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="VideoCatalogService">
+    <wsdl:port name="BasicHttpBinding_IVideoCatalogService" binding="tns:BasicHttpBinding_IVideoCatalogService">
+      <soap:address location="http://localhost:8000/CmdLineHost/VideoCatalog/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
