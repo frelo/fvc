@@ -1,8 +1,12 @@
 ﻿using System.Collections.Generic;
 using System.Threading.Tasks;
+using VideoCataloger.RemoteCatalogService;
+using System;
 
 namespace VideoCataloger
 {
+    //    using CefSharp.Wpf; // uncomment if you need to access the chronmium web browser.
+
     ///<summary>
     ///Root of script interface to FVC. An object that implements this interface is passed to the run function.
     ///</summary>
@@ -32,6 +36,16 @@ namespace VideoCataloger
         ///<summary>Get the utilities interface.</summary>
         ///<returns>An object that implements the IUtilities interface.</returns>
         IUtilities GetUtilities();
+
+        ///<summary>Get the browser.</summary>
+        ///<returns>An interface to the web browser.</returns>
+        ///This is part of the interface but to compile this solution you will need to get the cefsharp nuget package and add it as a reference.
+        ///Do note that you do NOT need to install the package to use the interace from inside Fast video cataloger.
+        // ChromiumWebBrowser GetBrowser();
+
+        ///<summary>Get video player.</summary>
+        ///<returns>An interface to the video player.</returns>
+        IVideoPlayer GetVideoPlayer();
     };
 
     ///<summary>
@@ -45,11 +59,11 @@ namespace VideoCataloger
         ///<summary>Set the selected videos in the program.</summary>
         ///<param name="new_selection">List with video ids</param>  
         void SetSelectedVideos(List<long> new_selection);
-        ///<summary>Select one v ideo in the catalog window.</summary>
+        ///<summary>Select one video in the catalog window.</summary>
         ///<param name="video_id">Video id for the video to be selected</param>  
         void SetSelectedVideo(long video_id);
         ///<summary>Set no selected video in the video catalog window.</summary>
-        Task SetNoSelectedVideo();
+        void SetNoSelectedVideo();
 
         ///<summary>Get the currently selected playlist. null if no selected playlist</summary>
         RemoteCatalogService.VideoPlaylist GetSelectedPlaylist();
@@ -72,6 +86,17 @@ namespace VideoCataloger
         ///<summary>Set the currently selected playlist.</summary>
         ///<param name="actor_id">actor id for the selected actor</param>  
         void SetSelectedActor(long actor_id);
+
+
+        ///<summary>Get a list of the currently selected thumbnail ids.</summary>
+        ///<returns>A list with video ids of the currently selected thumbnails. An emty list if there is no selection.</returns>
+        List<long> GetSelectedThumbnails();
+        ///<summary>Set the selected thumbnails in the program.</summary>
+        ///<param name="new_selection">List with thumbnai ids</param>  
+        void SetSelectedThumbnails(List<long> new_selection);
+        ///<summary>Select one thumbnail in the catalog window.</summary>
+        ///<param name="thumbnail_id">Thumbnail id for the video to be selected</param>  
+        void SetSelectedThumbnail(long thumbnail_id);
     }
 
 
@@ -127,6 +152,13 @@ namespace VideoCataloger
         /// </summary>
         /// <param name="hint">Hint on what to refresh, currently ignored</param>
         void Refresh(string hint);
+
+        /// <summary>
+        /// Run a command. A command is anything you can bind a hotkey to. 
+        /// </summary>
+        /// <param name="command_name">Name of the command as listed in the hotkey editor</param>
+        void RunCommand( string command_name );
+
     }
 
     ///<summary>
@@ -138,7 +170,7 @@ namespace VideoCataloger
         /// Mask a video file given its id in the catalog
         /// </summary>
         /// <param name="video_id">id of video file</param>
-        void Mask( long video_id );
+        void Mask(long video_id);
 
         /// <summary>
         /// Unmask a video file given its id in the catalog
@@ -159,6 +191,55 @@ namespace VideoCataloger
         /// </summary>
         /// <param name="path">path to convert</param>
         string ConvertFromLocalPath(string path);
+    }
+
+
+    // OBS this is NOT the video entry class, this is a helper for intellisense in visual studio
+    public class VideoEntry
+    {
+        public String OutFile;
+        public String FullvideoPath;
+        public long VideoID { get; set; }
+        public int Rating { get; set; }
+        public String Link { get; set; }
+        public String Description { get; set; }
+        public List<int> ActorList { get; set; }
+        public int Genre { get; set; }
+        public List<String> TagList { get; set; }
+        public double Length { get; set; }
+        public string Error { get; set; }
+        public long FileSize { get; set; }
+        public string Encrypted { get; set; }   // encryptedfrom if this is set the file is encrypted and this is the path is should have when unencrypted
+        public string Title { get; set; }
+        public byte[] IV { get; set; }
+    };
+
+    ///<summary>
+    /// VideoIndexer interface.
+    /// Use this interface to queue index requests
+    ///</summary>
+    public interface IVideoIndexerCallbacks
+    {
+        /// <summary>
+        /// Called at the start of indexing
+        /// </summary>
+        bool StartingIndexing(VideoEntry video);
+
+        /// <summary>
+        /// Called for each frame. Source unaltered frame from the video
+        /// </summary>
+        /// <returns>true if the frame is to be stored</returns>
+        bool ProcessFrame(int frame, double sample_time, ref System.Drawing.Bitmap image);
+
+        /// <summary>
+        /// Video has finished indexing. This is called when the video has finished indexing and have been added to the catalog.
+        /// </summary>
+        void VideoIndexedEnd(VideoEntry captured_video);
+
+        /// <summary>
+        /// Called at the end of indexing, i.e no more videos in queue to be indexed.
+        /// </summary>
+        void EndingIndexing();
     }
 
     ///<summary>
@@ -190,12 +271,115 @@ namespace VideoCataloger
         /// <param name="title">optional title of the video file</param>
         /// <param name="url">optional url for the video file.</param>
         /// <param name="desc">option desc for the videoe.</param>
-        void AddVideoFile(string path, string title="", string url="", string desc="");
+        void AddVideoFile(string path, string title = "", string url = "", string desc = "");
+
+        /// <summary>
+        /// Scan a folder of videos in the queue to be indexed.
+        /// </summary>
+        /// <param name="folder">Path to the folder to scan.</param>
+        /// <param name="include_subfolders">Scan subfolders for videos.</param>
+        /// <param name="skip_added">Ignore videos already in the catalog.</param>
+        void AddFolder(string folder, bool include_subfolders, bool skip_added);
 
         /// <summary>
         /// Start processing the index queue.
         /// </summary>
         void StartIndexing();
+
+        /// <summary>
+        /// Set callback interface implementation
+        /// </summary>
+        void SetIndexingCallbacks(IVideoIndexerCallbacks callbacks = null);
     }
 
+    ///<summary>
+    /// Interface to control the video player.
+    ///</summary>
+    public interface IVideoPlayer
+    {
+        /// <summary>
+        /// Set the selected video in the video player. Encrypted parameters are only needed for encrypted videos.
+        /// </summary>
+        /// <param name="video_id">ID of the video.</param>
+        /// <param name="video_path">Path to the video.</param>
+        /// <param name="video_length">Length of the video.</param>
+        /// <param name="encrypted">For encryted videos.</param>
+        /// <param name="IV">For encryted videos.</param>
+        /// <param name="key">For encryted videos.</param>
+        void SetSelectedVideo(long video_id, string video_path, double video_length, string encrypted, byte[] IV, string key);
+
+        /// <summary>
+        /// Seek to a time in the video
+        /// </summary>
+        /// <param name="seek_to_ms">ms from start of video.</param>
+        void Seek(double seek_to_ms);
+
+        /// <summary>
+        /// Resume playing from pause
+        /// </summary>
+        void UnPauseMovie();
+
+        /// <summary>
+        /// Pause video
+        /// </summary>
+        void PauseMovie();
+
+        /// <summary>
+        /// Play video
+        /// </summary>
+        void PlayMovie();
+
+        /// <summary>
+        /// Stop the video
+        /// </summary>
+        void StopMovie();
+
+        /// <summary>
+        /// Start playing from the provided time from the start
+        /// </summary>
+        /// <param name="seek_to_ms">ms from start of video.</param>
+        Task PlayFromTimeMS(double seek_to_ms);
+
+
+        /// <summary>
+        /// Get the current playback speed. 1.0 is normal playback speed.
+        /// </summary>
+        float GetPlaybackRate();
+
+        /// <summary>
+        /// Set the speed factor of video playback, 1.0 is normal speed.
+        /// Note that speed is not supported in all video formats.
+        /// </summary>
+        void SetPlaybackRate(float speed_factor);
+
+        /// <summary>
+        /// Is the video in fullscreen mode?
+        /// </summary>
+        bool IsFullscreen();
+
+        /// <summary>
+        /// Return true if the video is playing
+        /// </summary>
+        bool IsVideoPlaying();
+
+        /// <summary>
+        /// Return true if the video is paused
+        /// </summary>
+        bool IsVideoPaused();
+
+        /// <summary>
+        /// Return true if the video is stopped
+        /// </summary>
+        bool IsVideoStopped();
+
+        /// <summary>
+        /// Get the path of the video currently selected in the player.
+        /// </summary>
+        string GetSelectedVideoPath();
+
+        /// <summary>
+        /// Get the video catalog id of the video currently selected in the player.
+        /// </summary>
+        long GetSelectedVideoID();
+    }
 };
