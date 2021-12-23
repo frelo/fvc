@@ -1,0 +1,41 @@
+<Page 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Foreground="Black"
+        Background="White"
+        UseLayoutRounding="True">
+
+  <DockPanel LastChildFill="True">
+		<StackPanel DockPanel.Dock="Top" HorizontalAlignment="Center" Orientation="Horizontal">
+            <Label VerticalAlignment="Center" FontSize="16" Height="32" Foreground="Black" Margin="4">Actor:</Label>
+            <TextBox Name="search_box" FontSize="24" VerticalAlignment="Center" VerticalContentAlignment="Stretch" Height="32" Width="200" Margin="4" />
+            <Button Name="search_btn" FontSize="16" VerticalAlignment="Center" Height="32" BorderThickness="2" Content="Search" Margin="4" />
+            <Label Name="status" VerticalAlignment="Center" FontSize="16" Height="32" Foreground="Black" Margin="4"></Label>
+            <Button Name="add_btn" Visibility="Collapsed" FontSize="16" VerticalAlignment="Center" Height="32" BorderThickness="2" Content="Add to catalog" Margin="4" />
+        </StackPanel>
+      
+        <DockPanel Name="ui_results" Visibility="Collapsed" DockPanel.Dock="Top" HorizontalAlignment="Stretch" LastChildFill="True" >
+            <Grid Margin="8" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+
+                <Border BorderBrush="Black" BorderThickness="2" Margin="2" Grid.Column="0"  HorizontalAlignment="Center" >
+                    <Image Margin="2" Name="actor_portrait" Stretch="Uniform" HorizontalAlignment="Center" >
+                    </Image>
+                    <Border.BitmapEffect>
+                        <DropShadowBitmapEffect Color="Black" Direction="-50" ShadowDepth="4" Softness=".7" />
+                    </Border.BitmapEffect>
+                </Border>
+
+                <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Grid.Column="1" >
+                    <Label Name="actor_name" Foreground="Black" FontSize="32" HorizontalAlignment="Center" >Name</Label>
+                    <TextBlock Margin="2" FontSize="12" HorizontalAlignment="Stretch" TextWrapping="Wrap" Name="actor_desc" Foreground="Black" ></TextBlock>
+                </StackPanel>
+
+            </Grid>
+        </DockPanel>
+
+    </DockPanel>
+</Page>

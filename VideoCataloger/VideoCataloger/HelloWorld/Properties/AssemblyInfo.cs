@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("VideoCataloger")]
-[assembly: AssemblyDescription("Fast Video Cataloger sample project.")]
+[assembly: AssemblyTitle("HelloWorld")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("VideoCataloger")]
+[assembly: AssemblyProduct("HelloWorld")]
 [assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("7383cea1-0960-4c1d-ad99-950b16581fd8")]
+[assembly: Guid("6647f19e-b851-4d49-8ef7-effcb7f151e2")]
 
 // Version information for an assembly consists of the following four values:
 //

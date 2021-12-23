@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7383CEA1-0960-4C1D-AD99-950B16581FD8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>VideoCataloger</RootNamespace>
+    <AssemblyName>VideoCataloger</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x64</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationBuildTasks" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\samples\basic_selection.cs">
+      <Link>basic_selection.cs</Link>
+    </Compile>
+    <Compile Include="..\..\samples\concat_playlist.cs">
+      <Link>concat_playlist.cs</Link>
+    </Compile>
+    <Compile Include="..\..\samples\concat_videos.cs">
+      <Link>concat_videos.cs</Link>
+    </Compile>
+    <Compile Include="..\..\samples\convert_video.cs">
+      <Link>convert_video.cs</Link>
+    </Compile>
+    <Compile Include="..\..\samples\execute.cs">
+      <Link>execute.cs</Link>
+    </Compile>
+    <Compile Include="..\..\samples\export_thumbs.cs">
+      <Link>export_thumbs.cs</Link>
+    </Compile>
+    <Compile Include="..\..\samples\export_video_list.cs">
+      <Link>export_video_list.cs</Link>
+    </Compile>
+    <Compile Include="..\..\samples\filter_to_bin.cs">
+      <Link>filter_to_bin.cs</Link>
+    </Compile>
+    <Compile Include="..\..\samples\get_actors.xaml.cs">
+      <Link>get_actors.xaml.cs</Link>
+    </Compile>
+    <Compile Include="..\..\samples\HelloWorld.cs">
+      <Link>HelloWorld.cs</Link>
+    </Compile>
+    <Compile Include="..\..\samples\hello_wpf.xaml.cs">
+      <Link>hello_wpf.xaml.cs</Link>
+      <DependentUpon>hello_wpf.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="..\..\samples\import_csv.cs">
+      <Link>import_csv.cs</Link>
+    </Compile>
+    <Compile Include="..\..\samples\import_mdb.cs" />
+    <Compile Include="..\..\samples\make_playlist.cs">
+      <Link>make_playlist.cs</Link>
+    </Compile>
+    <Compile Include="..\..\samples\rename_to_date.cs">
+      <Link>rename_to_date.cs</Link>
+    </Compile>
+    <Compile Include="..\..\samples\rotate_images.cs">
+      <Link>rotate_images.cs</Link>
+    </Compile>
+    <Compile Include="..\..\samples\selection_genre.cs">
+      <Link>selection_genre.cs</Link>
+    </Compile>
+    <Compile Include="..\..\samples\selection_image.cs">
+      <Link>selection_image.cs</Link>
+    </Compile>
+    <Compile Include="..\..\samples\selection_popup.cs">
+      <Link>selection_popup.cs</Link>
+    </Compile>
+    <Compile Include="..\..\samples\selection_rating.cs" />
+    <Compile Include="..\..\samples\title_to_keywords.cs">
+      <Link>title_to_keywords.cs</Link>
+    </Compile>
+    <Compile Include="..\..\samples\unmask_to_source.cs">
+      <Link>unmask_to_source.cs</Link>
+    </Compile>
+    <Compile Include="..\ScriptInterface.cs">
+      <Link>ScriptInterface.cs</Link>
+    </Compile>
+    <Compile Include="Connected Services\RemoteCatalogService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Connected Services\RemoteCatalogService\2015.wsdl" />
+    <None Include="Connected Services\RemoteCatalogService\2015.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\RemoteCatalogService\Arrays.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\RemoteCatalogService\service.wsdl" />
+    <None Include="Connected Services\RemoteCatalogService\service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\RemoteCatalogService\VideoCataloger.RemoteCatalogService.Actor.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RemoteCatalogService\VideoCataloger.RemoteCatalogService.ActorCompanionImage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RemoteCatalogService\VideoCataloger.RemoteCatalogService.Archive.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RemoteCatalogService\VideoCataloger.RemoteCatalogService.Bin.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RemoteCatalogService\VideoCataloger.RemoteCatalogService.CoverImage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RemoteCatalogService\VideoCataloger.RemoteCatalogService.ExtendedProperty.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RemoteCatalogService\VideoCataloger.RemoteCatalogService.PropertyMeta.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RemoteCatalogService\VideoCataloger.RemoteCatalogService.SceneQueryResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RemoteCatalogService\VideoCataloger.RemoteCatalogService.Tag.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RemoteCatalogService\VideoCataloger.RemoteCatalogService.TagInstance.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RemoteCatalogService\VideoCataloger.RemoteCatalogService.ThumbnailEntry.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RemoteCatalogService\VideoCataloger.RemoteCatalogService.VideoClip.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RemoteCatalogService\VideoCataloger.RemoteCatalogService.VideoCompanionImage.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RemoteCatalogService\VideoCataloger.RemoteCatalogService.VideoFileEntry.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RemoteCatalogService\VideoCataloger.RemoteCatalogService.VideoGenre.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RemoteCatalogService\VideoCataloger.RemoteCatalogService.VideoPlaylist.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\RemoteCatalogService\VideoCatalogService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\RemoteCatalogService\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\RemoteCatalogService\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\RemoteCatalogService\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\RemoteCatalogService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="..\..\samples\get_actors.xaml">
+      <Link>get_actors.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="..\..\samples\hello_wpf.xaml">
+      <Link>hello_wpf.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

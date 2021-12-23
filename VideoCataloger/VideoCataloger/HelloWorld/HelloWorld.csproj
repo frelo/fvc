@@ -80,6 +80,9 @@
     <Compile Include="..\..\samples\filter_to_bin.cs">
       <Link>filter_to_bin.cs</Link>
     </Compile>
+    <Compile Include="..\..\samples\get_actors.xaml.cs">
+      <Link>get_actors.xaml.cs</Link>
+    </Compile>
     <Compile Include="..\..\samples\HelloWorld.cs">
       <Link>HelloWorld.cs</Link>
     </Compile>
@@ -91,11 +94,17 @@
       <Link>import_csv.cs</Link>
     </Compile>
     <Compile Include="..\..\samples\import_mdb.cs" />
+    <Compile Include="..\..\samples\make_playlist.cs">
+      <Link>make_playlist.cs</Link>
+    </Compile>
     <Compile Include="..\..\samples\rename_to_date.cs">
       <Link>rename_to_date.cs</Link>
     </Compile>
     <Compile Include="..\..\samples\rotate_images.cs">
       <Link>rotate_images.cs</Link>
+    </Compile>
+    <Compile Include="..\..\samples\selection_genre.cs">
+      <Link>selection_genre.cs</Link>
     </Compile>
     <Compile Include="..\..\samples\selection_image.cs">
       <Link>selection_image.cs</Link>
@@ -104,6 +113,9 @@
       <Link>selection_popup.cs</Link>
     </Compile>
     <Compile Include="..\..\samples\selection_rating.cs" />
+    <Compile Include="..\..\samples\title_to_keywords.cs">
+      <Link>title_to_keywords.cs</Link>
+    </Compile>
     <Compile Include="..\..\samples\unmask_to_source.cs">
       <Link>unmask_to_source.cs</Link>
     </Compile>
@@ -201,6 +213,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="..\..\samples\get_actors.xaml">
+      <Link>get_actors.xaml</Link>
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="..\..\samples\hello_wpf.xaml">
       <Link>hello_wpf.xaml</Link>
       <Generator>MSBuild:Compile</Generator>
