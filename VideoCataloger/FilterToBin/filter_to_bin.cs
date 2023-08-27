@@ -70,7 +70,7 @@ public class FilterToBin
             }
         }
         // clear the bin first.
-        Bin target_bin = catalog.CreateBin(m_BinLabel, -1, 0xffffff);
+        Bin target_bin = catalog.CreateBin(m_BinLabel, -1, 0xffffff, null);
         return target_bin.BinID;
     }
 

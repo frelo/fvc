@@ -17,6 +17,18 @@
   <wsdl:message name="IVideoCatalogService_GetActiveCatalogInstance_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetActiveCatalogInstanceResponse" />
   </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetSharedRoots_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSharedRoots" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetSharedRoots_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSharedRootsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetLastError_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastError" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetLastError_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLastErrorResponse" />
+  </wsdl:message>
   <wsdl:message name="IVideoCatalogService_AddVideo_InputMessage">
     <wsdl:part name="parameters" element="tns:AddVideo" />
   </wsdl:message>
@@ -55,6 +67,12 @@
   </wsdl:message>
   <wsdl:message name="IVideoCatalogService_RemovePropertyMeta_InputMessage">
     <wsdl:part name="parameters" element="tns:RemovePropertyMeta" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetAllExtendedPropertyValues_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllExtendedPropertyValues" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetAllExtendedPropertyValues_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllExtendedPropertyValuesResponse" />
   </wsdl:message>
   <wsdl:message name="IVideoCatalogService_GetVideoFileExtendedProperty_InputMessage">
     <wsdl:part name="parameters" element="tns:GetVideoFileExtendedProperty" />
@@ -194,6 +212,18 @@
   <wsdl:message name="IVideoCatalogService_GetActors_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetActorsResponse" />
   </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_SearchActorsFromString_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchActorsFromString" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_SearchActorsFromString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchActorsFromStringResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_SearchActors_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchActors" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_SearchActors_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchActorsResponse" />
+  </wsdl:message>
   <wsdl:message name="IVideoCatalogService_GetActorsForVideo_InputMessage">
     <wsdl:part name="parameters" element="tns:GetActorsForVideo" />
   </wsdl:message>
@@ -284,6 +314,12 @@
   <wsdl:message name="IVideoCatalogService_AddVideoThumbnail_InputMessage">
     <wsdl:part name="parameters" element="tns:AddVideoThumbnail" />
   </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_AddGetVideoThumbnail_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddGetVideoThumbnail" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_AddGetVideoThumbnail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddGetVideoThumbnailResponse" />
+  </wsdl:message>
   <wsdl:message name="IVideoCatalogService_TagThumbs_InputMessage">
     <wsdl:part name="parameters" element="tns:TagThumbs" />
   </wsdl:message>
@@ -370,6 +406,12 @@
   </wsdl:message>
   <wsdl:message name="IVideoCatalogService_SetCompanionImagePath_InputMessage">
     <wsdl:part name="parameters" element="tns:SetCompanionImagePath" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetVideoCompanionImage_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoCompanionImage" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetVideoCompanionImage_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoCompanionImageResponse" />
   </wsdl:message>
   <wsdl:message name="IVideoCatalogService_GetVideoCompanionImages_InputMessage">
     <wsdl:part name="parameters" element="tns:GetVideoCompanionImages" />
@@ -518,6 +560,15 @@
   <wsdl:message name="IVideoCatalogService_SetBinProperty_InputMessage">
     <wsdl:part name="parameters" element="tns:SetBinProperty" />
   </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_SetBinQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetBinQuery" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetBinQuery_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetBinQuery" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetBinQuery_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetBinQueryResponse" />
+  </wsdl:message>
   <wsdl:message name="IVideoCatalogService_GetAllBins_InputMessage">
     <wsdl:part name="parameters" element="tns:GetAllBins" />
   </wsdl:message>
@@ -580,6 +631,14 @@
       <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetActiveCatalogInstance" message="tns:IVideoCatalogService_GetActiveCatalogInstance_InputMessage" />
       <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetActiveCatalogInstanceResponse" message="tns:IVideoCatalogService_GetActiveCatalogInstance_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="GetSharedRoots">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetSharedRoots" message="tns:IVideoCatalogService_GetSharedRoots_InputMessage" />
+      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetSharedRootsResponse" message="tns:IVideoCatalogService_GetSharedRoots_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastError">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetLastError" message="tns:IVideoCatalogService_GetLastError_InputMessage" />
+      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetLastErrorResponse" message="tns:IVideoCatalogService_GetLastError_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="AddVideo">
       <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/AddVideo" message="tns:IVideoCatalogService_AddVideo_InputMessage" />
       <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/AddVideoResponse" message="tns:IVideoCatalogService_AddVideo_OutputMessage" />
@@ -610,6 +669,10 @@
     </wsdl:operation>
     <wsdl:operation name="RemovePropertyMeta">
       <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/RemovePropertyMeta" message="tns:IVideoCatalogService_RemovePropertyMeta_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllExtendedPropertyValues">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetAllExtendedPropertyValues" message="tns:IVideoCatalogService_GetAllExtendedPropertyValues_InputMessage" />
+      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetAllExtendedPropertyValuesResponse" message="tns:IVideoCatalogService_GetAllExtendedPropertyValues_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetVideoFileExtendedProperty">
       <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetVideoFileExtendedProperty" message="tns:IVideoCatalogService_GetVideoFileExtendedProperty_InputMessage" />
@@ -713,6 +776,14 @@
       <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetActors" message="tns:IVideoCatalogService_GetActors_InputMessage" />
       <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetActorsResponse" message="tns:IVideoCatalogService_GetActors_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="SearchActorsFromString">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/SearchActorsFromString" message="tns:IVideoCatalogService_SearchActorsFromString_InputMessage" />
+      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/SearchActorsFromStringResponse" message="tns:IVideoCatalogService_SearchActorsFromString_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchActors">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/SearchActors" message="tns:IVideoCatalogService_SearchActors_InputMessage" />
+      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/SearchActorsResponse" message="tns:IVideoCatalogService_SearchActors_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="GetActorsForVideo">
       <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetActorsForVideo" message="tns:IVideoCatalogService_GetActorsForVideo_InputMessage" />
       <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetActorsForVideoResponse" message="tns:IVideoCatalogService_GetActorsForVideo_OutputMessage" />
@@ -783,6 +854,10 @@
     <wsdl:operation name="AddVideoThumbnail">
       <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/AddVideoThumbnail" message="tns:IVideoCatalogService_AddVideoThumbnail_InputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="AddGetVideoThumbnail">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/AddGetVideoThumbnail" message="tns:IVideoCatalogService_AddGetVideoThumbnail_InputMessage" />
+      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/AddGetVideoThumbnailResponse" message="tns:IVideoCatalogService_AddGetVideoThumbnail_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="TagThumbs">
       <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/TagThumbs" message="tns:IVideoCatalogService_TagThumbs_InputMessage" />
       <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/TagThumbsResponse" message="tns:IVideoCatalogService_TagThumbs_OutputMessage" />
@@ -845,6 +920,10 @@
     </wsdl:operation>
     <wsdl:operation name="SetCompanionImagePath">
       <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/SetCompanionImagePath" message="tns:IVideoCatalogService_SetCompanionImagePath_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoCompanionImage">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetVideoCompanionImage" message="tns:IVideoCatalogService_GetVideoCompanionImage_InputMessage" />
+      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetVideoCompanionImageResponse" message="tns:IVideoCatalogService_GetVideoCompanionImage_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetVideoCompanionImages">
       <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetVideoCompanionImages" message="tns:IVideoCatalogService_GetVideoCompanionImages_InputMessage" />
@@ -952,6 +1031,13 @@
     </wsdl:operation>
     <wsdl:operation name="SetBinProperty">
       <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/SetBinProperty" message="tns:IVideoCatalogService_SetBinProperty_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetBinQuery">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/SetBinQuery" message="tns:IVideoCatalogService_SetBinQuery_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetBinQuery">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetBinQuery" message="tns:IVideoCatalogService_GetBinQuery_InputMessage" />
+      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetBinQueryResponse" message="tns:IVideoCatalogService_GetBinQuery_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="GetAllBins">
       <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetAllBins" message="tns:IVideoCatalogService_GetAllBins_InputMessage" />

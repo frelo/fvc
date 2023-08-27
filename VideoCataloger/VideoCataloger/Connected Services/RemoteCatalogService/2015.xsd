@@ -21,6 +21,30 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetSharedRoots">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSharedRootsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetSharedRootsResult" nillable="true" type="q1:SharedRoots" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastError">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLastErrorResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetLastErrorResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="AddVideo">
     <xs:complexType>
       <xs:sequence>
@@ -41,7 +65,7 @@
   <xs:element name="AddVideoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="AddVideoResult" type="xs:int" />
+        <xs:element minOccurs="0" name="AddVideoResult" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -70,14 +94,14 @@
   <xs:element name="SearchVideos">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="video_query" nillable="true" type="q1:VideoQuery" />
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="video_query" nillable="true" type="q2:VideoQuery" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SearchVideosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="SearchVideosResult" nillable="true" type="q2:ArrayOfVideoFileEntry" />
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="SearchVideosResult" nillable="true" type="q3:ArrayOfVideoFileEntry" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -91,7 +115,7 @@
   <xs:element name="SearchVideosFromStringResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="SearchVideosFromStringResult" nillable="true" type="q3:ArrayOfVideoFileEntry" />
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="SearchVideosFromStringResult" nillable="true" type="q4:ArrayOfVideoFileEntry" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -105,7 +129,7 @@
   <xs:element name="GetPropertyMetaResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetPropertyMetaResult" nillable="true" type="q4:ArrayOfPropertyMeta" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetPropertyMetaResult" nillable="true" type="q5:ArrayOfPropertyMeta" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -126,24 +150,38 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetAllExtendedPropertyValues">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="property_name" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllExtendedPropertyValuesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetAllExtendedPropertyValuesResult" nillable="true" type="q6:ArrayOfExtendedPropertyVideoValue" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetVideoFileExtendedProperty">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="video_file_id" type="xs:int" />
+        <xs:element minOccurs="0" name="video_file_id" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetVideoFileExtendedPropertyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetVideoFileExtendedPropertyResult" nillable="true" type="q5:ArrayOfExtendedProperty" />
+        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetVideoFileExtendedPropertyResult" nillable="true" type="q7:ArrayOfExtendedProperty" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SetVideoFileExtendedProperty">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="video_file_id" type="xs:int" />
+        <xs:element minOccurs="0" name="video_file_id" type="xs:long" />
         <xs:element minOccurs="0" name="property" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -152,21 +190,21 @@
   <xs:element name="GetThumbnailExtendedProperty">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="thumbnail_id" type="xs:int" />
+        <xs:element minOccurs="0" name="thumbnail_id" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetThumbnailExtendedPropertyResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetThumbnailExtendedPropertyResult" nillable="true" type="q6:ArrayOfExtendedProperty" />
+        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetThumbnailExtendedPropertyResult" nillable="true" type="q8:ArrayOfExtendedProperty" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SetThumbnailExtendedProperty">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="thumbnail_id" type="xs:int" />
+        <xs:element minOccurs="0" name="thumbnail_id" type="xs:long" />
         <xs:element minOccurs="0" name="property" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="value" nillable="true" type="xs:string" />
       </xs:sequence>
@@ -175,15 +213,15 @@
   <xs:element name="SearchThumbnails">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q7="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="video_query" nillable="true" type="q7:VideoQuery" />
-        <xs:element xmlns:q8="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="scene_search" nillable="true" type="q8:SceneQuery" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="video_query" nillable="true" type="q9:VideoQuery" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="scene_search" nillable="true" type="q10:SceneQuery" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SearchThumbnailsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="SearchThumbnailsResult" nillable="true" type="q9:SceneQueryResult" />
+        <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="SearchThumbnailsResult" nillable="true" type="q11:SceneQueryResult" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -197,7 +235,7 @@
   <xs:element name="GetVideoFileIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetVideoFileIDResult" type="xs:int" />
+        <xs:element minOccurs="0" name="GetVideoFileIDResult" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -211,7 +249,7 @@
   <xs:element name="GetVideoFileEntryResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetVideoFileEntryResult" nillable="true" type="q10:VideoFileEntry" />
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetVideoFileEntryResult" nillable="true" type="q12:VideoFileEntry" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -272,14 +310,14 @@
   <xs:element name="GetTagsForVideos">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="selected_videos" nillable="true" type="q11:ArrayOflong" />
+        <xs:element xmlns:q13="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="selected_videos" nillable="true" type="q13:ArrayOflong" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetTagsForVideosResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetTagsForVideosResult" nillable="true" type="q12:ArrayOfTagInstance" />
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetTagsForVideosResult" nillable="true" type="q14:ArrayOfTagInstance" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -315,28 +353,28 @@
   <xs:element name="CreateVideoTag">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="tag" nillable="true" type="q13:Tag" />
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="tag" nillable="true" type="q15:Tag" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreateVideoTagResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="CreateVideoTagResult" nillable="true" type="q14:Tag" />
+        <xs:element xmlns:q16="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="CreateVideoTagResult" nillable="true" type="q16:Tag" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DeleteVideoTagFromCatalog">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="TagID" type="xs:int" />
+        <xs:element minOccurs="0" name="tag_id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="DeleteThumbTagFromCatalog">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="TagID" type="xs:int" />
+        <xs:element minOccurs="0" name="tag_id" type="xs:int" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -357,7 +395,7 @@
   <xs:element name="GetAllVideoTagsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetAllVideoTagsResult" nillable="true" type="q15:ArrayOfTag" />
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetAllVideoTagsResult" nillable="true" type="q17:ArrayOfTag" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -371,7 +409,7 @@
   <xs:element name="GetRandomVideoFileEntriesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetRandomVideoFileEntriesResult" nillable="true" type="q16:ArrayOfKeyValueOflongVideoFileEntryveKurTN_S" />
+        <xs:element xmlns:q18="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetRandomVideoFileEntriesResult" nillable="true" type="q18:ArrayOfKeyValueOflongVideoFileEntryveKurTN_S" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -379,7 +417,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="source" nillable="true" type="xs:anyType" />
-        <xs:element xmlns:q17="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="actor_ids" nillable="true" type="q17:ArrayOflong" />
+        <xs:element xmlns:q19="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="actor_ids" nillable="true" type="q19:ArrayOflong" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -391,7 +429,7 @@
   <xs:element name="GetAllActorTagsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetAllActorTagsResult" nillable="true" type="q18:ArrayOfTag" />
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetAllActorTagsResult" nillable="true" type="q20:ArrayOfTag" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -405,7 +443,7 @@
   <xs:element name="GetActorTagsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetActorTagsResult" nillable="true" type="q19:ArrayOfTagInstance" />
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetActorTagsResult" nillable="true" type="q21:ArrayOfTagInstance" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -435,21 +473,21 @@
   <xs:element name="CreateActorTag">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="tag" nillable="true" type="q20:Tag" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="tag" nillable="true" type="q22:Tag" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreateActorTagResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="CreateActorTagResult" nillable="true" type="q21:Tag" />
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="CreateActorTagResult" nillable="true" type="q23:Tag" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetActors">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q22="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="tag_filter" nillable="true" type="q22:ArrayOfstring" />
+        <xs:element xmlns:q24="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="tag_filter" nillable="true" type="q24:ArrayOfstring" />
         <xs:element minOccurs="0" name="surename_filter" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="lastname_filter" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="skip_image_data" type="xs:boolean" />
@@ -459,14 +497,43 @@
   <xs:element name="GetActorsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetActorsResult" nillable="true" type="q23:ArrayOfActor" />
+        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetActorsResult" nillable="true" type="q25:ArrayOfActor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchActorsFromString">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="search_string" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchActorsFromStringResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="SearchActorsFromStringResult" nillable="true" type="q26:ArrayOfActor" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchActors">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="actor_query" nillable="true" type="q27:ActorQuery" />
+        <xs:element minOccurs="0" name="skip_image_data" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SearchActorsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q28="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="SearchActorsResult" nillable="true" type="q28:ArrayOfActor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetActorsForVideo">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="Video_file_id" type="xs:long" />
+        <xs:element minOccurs="0" name="video_file_id" type="xs:long" />
         <xs:element minOccurs="0" name="skip_image_data" type="xs:boolean" />
       </xs:sequence>
     </xs:complexType>
@@ -474,14 +541,14 @@
   <xs:element name="GetActorsForVideoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetActorsForVideoResult" nillable="true" type="q24:ArrayOfActor" />
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetActorsForVideoResult" nillable="true" type="q29:ArrayOfActor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="AddActorToDB">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q25="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="actor" nillable="true" type="q25:Actor" />
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="actor" nillable="true" type="q30:Actor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -495,7 +562,7 @@
   <xs:element name="UpdateActor">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="actor" nillable="true" type="q26:Actor" />
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="actor" nillable="true" type="q31:Actor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -569,7 +636,7 @@
   <xs:element name="GetActorResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q27="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetActorResult" nillable="true" type="q27:Actor" />
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetActorResult" nillable="true" type="q32:Actor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -613,14 +680,14 @@
   <xs:element name="GetCast">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="video_list" nillable="true" type="q28:ArrayOflong" />
+        <xs:element xmlns:q33="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="video_list" nillable="true" type="q33:ArrayOflong" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetCastResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetCastResult" nillable="true" type="q29:ArrayOfActor" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetCastResult" nillable="true" type="q34:ArrayOfActor" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -634,7 +701,7 @@
   <xs:element name="GetActorCompanionImagesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetActorCompanionImagesResult" nillable="true" type="q30:ArrayOfActorCompanionImage" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetActorCompanionImagesResult" nillable="true" type="q35:ArrayOfActorCompanionImage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -648,14 +715,14 @@
   <xs:element name="GetTagsForThumbs">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q31="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="selected_thumbs" nillable="true" type="q31:ArrayOflong" />
+        <xs:element xmlns:q36="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="selected_thumbs" nillable="true" type="q36:ArrayOflong" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetTagsForThumbsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetTagsForThumbsResult" nillable="true" type="q32:ArrayOfTagInstance" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetTagsForThumbsResult" nillable="true" type="q37:ArrayOfTagInstance" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -676,14 +743,28 @@
   <xs:element name="AddVideoThumbnail">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="thumb_entry" nillable="true" type="q33:ThumbnailEntry" />
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="thumb_entry" nillable="true" type="q38:ThumbnailEntry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddGetVideoThumbnail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="thumb_entry" nillable="true" type="q39:ThumbnailEntry" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddGetVideoThumbnailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddGetVideoThumbnailResult" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="TagThumbs">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q34="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="thumb_list" nillable="true" type="q34:ArrayOflong" />
+        <xs:element xmlns:q40="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="thumb_list" nillable="true" type="q40:ArrayOflong" />
         <xs:element minOccurs="0" name="entered_keyword_string" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -719,7 +800,7 @@
   <xs:element name="GetThumbnailResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetThumbnailResult" nillable="true" type="q35:ThumbnailEntry" />
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetThumbnailResult" nillable="true" type="q41:ThumbnailEntry" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -731,7 +812,7 @@
   <xs:element name="GetAllThumbnailTagsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetAllThumbnailTagsResult" nillable="true" type="q36:ArrayOfTag" />
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetAllThumbnailTagsResult" nillable="true" type="q42:ArrayOfTag" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -753,7 +834,7 @@
   <xs:element name="GetThumbnailsForVideoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q37="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetThumbnailsForVideoResult" nillable="true" type="q37:ArrayOfKeyValueOflongThumbnailEntryveKurTN_S" />
+        <xs:element xmlns:q43="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetThumbnailsForVideoResult" nillable="true" type="q43:ArrayOfKeyValueOflongThumbnailEntryveKurTN_S" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -767,7 +848,7 @@
   <xs:element name="GetThumbnailsIDsForVideoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q38="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetThumbnailsIDsForVideoResult" nillable="true" type="q38:ArrayOflong" />
+        <xs:element xmlns:q44="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetThumbnailsIDsForVideoResult" nillable="true" type="q44:ArrayOflong" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -779,7 +860,7 @@
   <xs:element name="GetAllCoverImagesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetAllCoverImagesResult" nillable="true" type="q39:ArrayOfCoverImage" />
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetAllCoverImagesResult" nillable="true" type="q45:ArrayOfCoverImage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -793,7 +874,7 @@
   <xs:element name="GetCoverImagesForVideoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetCoverImagesForVideoResult" nillable="true" type="q40:CoverImage" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetCoverImagesForVideoResult" nillable="true" type="q46:CoverImage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -801,7 +882,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="video_file_id" type="xs:long" />
-        <xs:element xmlns:q41="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="image_paths" nillable="true" type="q41:ArrayOfstring" />
+        <xs:element xmlns:q47="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="image_paths" nillable="true" type="q47:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -831,7 +912,7 @@
   <xs:element name="GetCompanionImageID">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="video_file_id" type="xs:int" />
+        <xs:element minOccurs="0" name="video_file_id" type="xs:long" />
         <xs:element minOccurs="0" name="escaped_path" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
@@ -839,7 +920,7 @@
   <xs:element name="GetCompanionImageIDResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetCompanionImageIDResult" type="xs:int" />
+        <xs:element minOccurs="0" name="GetCompanionImageIDResult" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -853,7 +934,7 @@
   <xs:element name="GetVideoFileIDForCompanionImageResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetVideoFileIDForCompanionImageResult" type="xs:int" />
+        <xs:element minOccurs="0" name="GetVideoFileIDForCompanionImageResult" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -861,8 +942,8 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="video_file_id" type="xs:long" />
-        <xs:element minOccurs="0" name="front_cover_id" type="xs:int" />
-        <xs:element minOccurs="0" name="back_cover_id" type="xs:int" />
+        <xs:element minOccurs="0" name="front_cover_id" type="xs:long" />
+        <xs:element minOccurs="0" name="back_cover_id" type="xs:long" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -889,6 +970,20 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="GetVideoCompanionImage">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="companion_id" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVideoCompanionImageResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetVideoCompanionImageResult" nillable="true" type="q48:VideoCompanionImage" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetVideoCompanionImages">
     <xs:complexType>
       <xs:sequence>
@@ -899,19 +994,22 @@
   <xs:element name="GetVideoCompanionImagesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetVideoCompanionImagesResult" nillable="true" type="q42:ArrayOfVideoCompanionImage" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetVideoCompanionImagesResult" nillable="true" type="q49:ArrayOfVideoCompanionImage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAllVideoCompanionImages">
     <xs:complexType>
-      <xs:sequence />
+      <xs:sequence>
+        <xs:element minOccurs="0" name="limit" type="xs:int" />
+        <xs:element minOccurs="0" name="random" type="xs:boolean" />
+      </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="GetAllVideoCompanionImagesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetAllVideoCompanionImagesResult" nillable="true" type="q43:ArrayOfVideoCompanionImage" />
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetAllVideoCompanionImagesResult" nillable="true" type="q50:ArrayOfVideoCompanionImage" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -975,7 +1073,7 @@
   <xs:element name="GetArchiveResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetArchiveResult" nillable="true" type="q44:Archive" />
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetArchiveResult" nillable="true" type="q51:Archive" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -987,7 +1085,7 @@
   <xs:element name="GetArchivesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetArchivesResult" nillable="true" type="q45:ArrayOfArchive" />
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetArchivesResult" nillable="true" type="q52:ArrayOfArchive" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1001,7 +1099,7 @@
   <xs:element name="GetArchivesForVideoResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q46="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetArchivesForVideoResult" nillable="true" type="q46:ArrayOfint" />
+        <xs:element xmlns:q53="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetArchivesForVideoResult" nillable="true" type="q53:ArrayOfint" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1021,7 +1119,7 @@
   <xs:element name="GetAllTagNamesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q47="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetAllTagNamesResult" nillable="true" type="q47:ArrayOfstring" />
+        <xs:element xmlns:q54="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetAllTagNamesResult" nillable="true" type="q54:ArrayOfstring" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1033,7 +1131,7 @@
   <xs:element name="GetGenresResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q48="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetGenresResult" nillable="true" type="q48:ArrayOfVideoGenre" />
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetGenresResult" nillable="true" type="q55:ArrayOfVideoGenre" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1160,7 +1258,7 @@
   <xs:element name="GetVideosInBinResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetVideosInBinResult" nillable="true" type="q49:ArrayOfVideoFileEntry" />
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetVideosInBinResult" nillable="true" type="q56:ArrayOfVideoFileEntry" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1174,7 +1272,7 @@
   <xs:element name="GetBinsInBinResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetBinsInBinResult" nillable="true" type="q50:ArrayOfBin" />
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetBinsInBinResult" nillable="true" type="q57:ArrayOfBin" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1212,13 +1310,14 @@
         <xs:element minOccurs="0" name="label" nillable="true" type="xs:string" />
         <xs:element minOccurs="0" name="parent" type="xs:long" />
         <xs:element minOccurs="0" name="color" type="xs:unsignedInt" />
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="smart_bin_query" nillable="true" type="q58:VideoQuery" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="CreateBinResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="CreateBinResult" nillable="true" type="q51:Bin" />
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="CreateBinResult" nillable="true" type="q59:Bin" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1231,6 +1330,28 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
+  <xs:element name="SetBinQuery">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bin_id" type="xs:long" />
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="smart_bin_query" nillable="true" type="q60:VideoQuery" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBinQuery">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="bin_id" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetBinQueryResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetBinQueryResult" nillable="true" type="q61:VideoQuery" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
   <xs:element name="GetAllBins">
     <xs:complexType>
       <xs:sequence />
@@ -1239,14 +1360,14 @@
   <xs:element name="GetAllBinsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetAllBinsResult" nillable="true" type="q52:ArrayOfBin" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetAllBinsResult" nillable="true" type="q62:ArrayOfBin" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
   <xs:element name="SetVideoClip">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="clip" nillable="true" type="q53:VideoClip" />
+        <xs:element xmlns:q63="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="clip" nillable="true" type="q63:VideoClip" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1267,7 +1388,7 @@
   <xs:element name="GetVideoClipResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetVideoClipResult" nillable="true" type="q54:VideoClip" />
+        <xs:element xmlns:q64="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetVideoClipResult" nillable="true" type="q64:VideoClip" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1300,7 +1421,7 @@
   <xs:element name="GetAllVideoPlaylistsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetAllVideoPlaylistsResult" nillable="true" type="q55:ArrayOfVideoPlaylist" />
+        <xs:element xmlns:q65="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetAllVideoPlaylistsResult" nillable="true" type="q65:ArrayOfVideoPlaylist" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1331,7 +1452,7 @@
   <xs:element name="GetPlaylistClipResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetPlaylistClipResult" nillable="true" type="q56:VideoClip" />
+        <xs:element xmlns:q66="http://schemas.datacontract.org/2004/07/VideoCatalogService" minOccurs="0" name="GetPlaylistClipResult" nillable="true" type="q66:VideoClip" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -1353,7 +1474,7 @@
   <xs:element name="GetPlaylistClipIDsResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element xmlns:q57="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetPlaylistClipIDsResult" nillable="true" type="q57:ArrayOfint" />
+        <xs:element xmlns:q67="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetPlaylistClipIDsResult" nillable="true" type="q67:ArrayOfint" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

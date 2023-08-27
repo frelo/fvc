@@ -19,6 +19,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="GetSharedRoots">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetSharedRoots" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastError">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetLastError" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="AddVideo">
       <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/AddVideo" style="document" />
       <wsdl:input>
@@ -84,6 +102,15 @@
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllExtendedPropertyValues">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetAllExtendedPropertyValues" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetVideoFileExtendedProperty">
       <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetVideoFileExtendedProperty" style="document" />
@@ -307,6 +334,24 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SearchActorsFromString">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SearchActorsFromString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SearchActors">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SearchActors" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="GetActorsForVideo">
       <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetActorsForVideo" style="document" />
       <wsdl:input>
@@ -457,6 +502,15 @@
         <soap:body use="literal" />
       </wsdl:input>
     </wsdl:operation>
+    <wsdl:operation name="AddGetVideoThumbnail">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/AddGetVideoThumbnail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="TagThumbs">
       <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/TagThumbs" style="document" />
       <wsdl:input>
@@ -594,6 +648,15 @@
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoCompanionImage">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetVideoCompanionImage" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetVideoCompanionImages">
       <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetVideoCompanionImages" style="document" />
@@ -828,6 +891,21 @@
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SetBinQuery">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetBinQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetBinQuery">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetBinQuery" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="GetAllBins">
       <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetAllBins" style="document" />

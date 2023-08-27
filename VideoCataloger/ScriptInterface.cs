@@ -41,7 +41,7 @@ namespace VideoCataloger
         ///<returns>An interface to the web browser.</returns>
         ///This is part of the interface but to compile this solution you will need to get the cefsharp nuget package and add it as a reference.
         ///Do note that you do NOT need to install the package to use the interace from inside Fast video cataloger.
-        // ChromiumWebBrowser GetBrowser();
+        //ChromiumWebBrowser GetBrowser();
 
         ///<summary>Get video player.</summary>
         ///<returns>An interface to the video player.</returns>
@@ -193,7 +193,6 @@ namespace VideoCataloger
         string ConvertFromLocalPath(string path);
     }
 
-
     // OBS this is NOT the video entry class, this is a helper for intellisense in visual studio
     public class VideoEntry
     {
@@ -203,7 +202,7 @@ namespace VideoCataloger
         public int Rating { get; set; }
         public String Link { get; set; }
         public String Description { get; set; }
-        public List<int> ActorList { get; set; }
+        public List<long> ActorList { get; set; }
         public int Genre { get; set; }
         public List<String> TagList { get; set; }
         public double Length { get; set; }

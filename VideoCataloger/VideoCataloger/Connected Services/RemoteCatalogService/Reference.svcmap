@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="1efaa3cd-4405-457a-807f-5ce92a416caf" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8959e088-f3a7-4cc8-95db-7ba4b0f89f02" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
   <ClientOptions>
     <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
     <EnableDataBinding>true</EnableDataBinding>
     <ExcludedTypes />
     <ImportXmlTypes>false</ImportXmlTypes>
@@ -12,7 +13,7 @@
     <GenerateSerializableTypes>true</GenerateSerializableTypes>
     <Serializer>Auto</Serializer>
     <UseSerializerForFaults>true</UseSerializerForFaults>
-    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
     <ReferencedAssemblies />
     <ReferencedDataContractTypes />
     <ServiceContractMappings />
@@ -21,12 +22,12 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/VideoCatalogService/Service1/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="2015.wsdl" MetadataType="Wsdl" ID="84c29576-2180-49e7-90f6-81656e7aa004" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/VideoCatalogService/Service1/mex" />
-    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="dfbfb5a0-80e4-409a-b857-647fb46efaea" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/VideoCatalogService/Service1/mex" />
-    <MetadataFile FileName="2015.xsd" MetadataType="Schema" ID="1138c60a-1b9f-469a-82f7-87b060bdac6b" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/VideoCatalogService/Service1/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="3777570b-02ac-4427-b8aa-38bc97b7e0de" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/VideoCatalogService/Service1/mex" />
-    <MetadataFile FileName="VideoCatalogService.xsd" MetadataType="Schema" ID="c2c9a6ff-fc96-47e8-a710-1a2b9d7f26c6" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/VideoCatalogService/Service1/mex" />
-    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="16d9edce-1b44-4332-baef-758caebf4c09" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/VideoCatalogService/Service1/mex" />
+    <MetadataFile FileName="2015.wsdl" MetadataType="Wsdl" ID="da9a6dc2-af08-4142-ab1d-a660c20e4ebe" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/VideoCatalogService/Service1/mex" />
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="aed87203-eac0-4033-93b0-d3862679de89" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/VideoCatalogService/Service1/mex" />
+    <MetadataFile FileName="2015.xsd" MetadataType="Schema" ID="0d83fa52-f4bf-480e-825f-cfd3509131b6" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/VideoCatalogService/Service1/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="11204456-821e-47a8-8e30-8153b15fe6e6" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/VideoCatalogService/Service1/mex" />
+    <MetadataFile FileName="VideoCatalogService.xsd" MetadataType="Schema" ID="1cb09ec2-d279-4e2c-8089-52eef7282b4a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/VideoCatalogService/Service1/mex" />
+    <MetadataFile FileName="Arrays.xsd" MetadataType="Schema" ID="fec1e78e-160c-4bdf-940d-5398bf0f4a9d" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/VideoCatalogService/Service1/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

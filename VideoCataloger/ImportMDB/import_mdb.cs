@@ -61,7 +61,7 @@ namespace VideoCataloger
                         string description = reader["description"].ToString();
                         string url = reader["url"].ToString();
 
-                        int video_id = catalog.AddVideo(path, name, 0, description, 0, 0, url, null, 0, null, null);
+                        long video_id = catalog.AddVideo(path, name, 0, description, 0, 0, url, null, 0, null, null);
 
                         string year = reader["year"].ToString();
                         catalog.SetVideoFileExtendedProperty(video_id, "year", year);
