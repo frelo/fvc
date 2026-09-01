@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://videocataloger.com/2015" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://videocataloger.com/2015" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://videocataloger.com/2015" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" targetNamespace="http://videocataloger.com/2015" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:types>
     <xsd:schema targetNamespace="http://videocataloger.com/2015/Imports">
       <xsd:import namespace="http://videocataloger.com/2015" />
@@ -8,6 +8,54 @@
       <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
+  <wsdl:message name="IVideoCatalogService_SetClipToPlaylist_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetClipToPlaylist" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetPlaylistClip_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlaylistClip" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetPlaylistClip_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlaylistClipResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_RemovePlaylistClip_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemovePlaylistClip" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetPlaylistClipIDs_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlaylistClipIDs" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetPlaylistClipIDs_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPlaylistClipIDsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_SetSubtitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:SetSubtitle" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_SetSubtitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SetSubtitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetSubtitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubtitle" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetSubtitle_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubtitleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetAllSubtitles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSubtitles" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetAllSubtitles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSubtitlesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_RemoveSubtitle_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveSubtitle" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_RemoveSubtitlesFromVideo_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveSubtitlesFromVideo" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_SearchSubtitlesFromString_InputMessage">
+    <wsdl:part name="parameters" element="tns:SearchSubtitlesFromString" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_SearchSubtitlesFromString_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SearchSubtitlesFromStringResponse" />
+  </wsdl:message>
   <wsdl:message name="IVideoCatalogService_SetActiveCatalogInstance_InputMessage">
     <wsdl:part name="parameters" element="tns:SetActiveCatalogInstance" />
   </wsdl:message>
@@ -175,6 +223,42 @@
   </wsdl:message>
   <wsdl:message name="IVideoCatalogService_GetRandomVideoFileEntries_OutputMessage">
     <wsdl:part name="parameters" element="tns:GetRandomVideoFileEntriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_CreateTagGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTagGroup" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_CreateTagGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTagGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_DeleteTagGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTagGroup" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_AddVideoTagToGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddVideoTagToGroup" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_AddVideoTagToGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddVideoTagToGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_RemoveVideoTagFromGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:RemoveVideoTagFromGroup" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetAllTagGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTagGroups" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetAllTagGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllTagGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetVideoTagsInGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoTagsInGroup" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetVideoTagsInGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVideoTagsInGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetGroupsForVideoTag_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsForVideoTag" />
+  </wsdl:message>
+  <wsdl:message name="IVideoCatalogService_GetGroupsForVideoTag_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupsForVideoTagResponse" />
   </wsdl:message>
   <wsdl:message name="IVideoCatalogService_ImportActors_InputMessage">
     <wsdl:part name="parameters" element="tns:ImportActors" />
@@ -605,25 +689,43 @@
   <wsdl:message name="IVideoCatalogService_DeletePlaylist_InputMessage">
     <wsdl:part name="parameters" element="tns:DeletePlaylist" />
   </wsdl:message>
-  <wsdl:message name="IVideoCatalogService_SetClipToPlaylist_InputMessage">
-    <wsdl:part name="parameters" element="tns:SetClipToPlaylist" />
-  </wsdl:message>
-  <wsdl:message name="IVideoCatalogService_GetPlaylistClip_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetPlaylistClip" />
-  </wsdl:message>
-  <wsdl:message name="IVideoCatalogService_GetPlaylistClip_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetPlaylistClipResponse" />
-  </wsdl:message>
-  <wsdl:message name="IVideoCatalogService_RemovePlaylistClip_InputMessage">
-    <wsdl:part name="parameters" element="tns:RemovePlaylistClip" />
-  </wsdl:message>
-  <wsdl:message name="IVideoCatalogService_GetPlaylistClipIDs_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetPlaylistClipIDs" />
-  </wsdl:message>
-  <wsdl:message name="IVideoCatalogService_GetPlaylistClipIDs_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetPlaylistClipIDsResponse" />
-  </wsdl:message>
   <wsdl:portType name="IVideoCatalogService">
+    <wsdl:operation name="SetClipToPlaylist">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/SetClipToPlaylist" message="tns:IVideoCatalogService_SetClipToPlaylist_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlaylistClip">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClip" message="tns:IVideoCatalogService_GetPlaylistClip_InputMessage" />
+      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipResponse" message="tns:IVideoCatalogService_GetPlaylistClip_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemovePlaylistClip">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/RemovePlaylistClip" message="tns:IVideoCatalogService_RemovePlaylistClip_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlaylistClipIDs">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipIDs" message="tns:IVideoCatalogService_GetPlaylistClipIDs_InputMessage" />
+      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipIDsResponse" message="tns:IVideoCatalogService_GetPlaylistClipIDs_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SetSubtitle">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/SetSubtitle" message="tns:IVideoCatalogService_SetSubtitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/SetSubtitleResponse" message="tns:IVideoCatalogService_SetSubtitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubtitle">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetSubtitle" message="tns:IVideoCatalogService_GetSubtitle_InputMessage" />
+      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetSubtitleResponse" message="tns:IVideoCatalogService_GetSubtitle_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSubtitles">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetAllSubtitles" message="tns:IVideoCatalogService_GetAllSubtitles_InputMessage" />
+      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetAllSubtitlesResponse" message="tns:IVideoCatalogService_GetAllSubtitles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSubtitle">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/RemoveSubtitle" message="tns:IVideoCatalogService_RemoveSubtitle_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSubtitlesFromVideo">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/RemoveSubtitlesFromVideo" message="tns:IVideoCatalogService_RemoveSubtitlesFromVideo_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SearchSubtitlesFromString">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/SearchSubtitlesFromString" message="tns:IVideoCatalogService_SearchSubtitlesFromString_InputMessage" />
+      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/SearchSubtitlesFromStringResponse" message="tns:IVideoCatalogService_SearchSubtitlesFromString_OutputMessage" />
+    </wsdl:operation>
     <wsdl:operation name="SetActiveCatalogInstance">
       <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/SetActiveCatalogInstance" message="tns:IVideoCatalogService_SetActiveCatalogInstance_InputMessage" />
     </wsdl:operation>
@@ -749,6 +851,32 @@
     <wsdl:operation name="GetRandomVideoFileEntries">
       <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetRandomVideoFileEntries" message="tns:IVideoCatalogService_GetRandomVideoFileEntries_InputMessage" />
       <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetRandomVideoFileEntriesResponse" message="tns:IVideoCatalogService_GetRandomVideoFileEntries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTagGroup">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/CreateTagGroup" message="tns:IVideoCatalogService_CreateTagGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/CreateTagGroupResponse" message="tns:IVideoCatalogService_CreateTagGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTagGroup">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/DeleteTagGroup" message="tns:IVideoCatalogService_DeleteTagGroup_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddVideoTagToGroup">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/AddVideoTagToGroup" message="tns:IVideoCatalogService_AddVideoTagToGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/AddVideoTagToGroupResponse" message="tns:IVideoCatalogService_AddVideoTagToGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveVideoTagFromGroup">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/RemoveVideoTagFromGroup" message="tns:IVideoCatalogService_RemoveVideoTagFromGroup_InputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTagGroups">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetAllTagGroups" message="tns:IVideoCatalogService_GetAllTagGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetAllTagGroupsResponse" message="tns:IVideoCatalogService_GetAllTagGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoTagsInGroup">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetVideoTagsInGroup" message="tns:IVideoCatalogService_GetVideoTagsInGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetVideoTagsInGroupResponse" message="tns:IVideoCatalogService_GetVideoTagsInGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsForVideoTag">
+      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetGroupsForVideoTag" message="tns:IVideoCatalogService_GetGroupsForVideoTag_InputMessage" />
+      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetGroupsForVideoTagResponse" message="tns:IVideoCatalogService_GetGroupsForVideoTag_OutputMessage" />
     </wsdl:operation>
     <wsdl:operation name="ImportActors">
       <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/ImportActors" message="tns:IVideoCatalogService_ImportActors_InputMessage" />
@@ -1064,20 +1192,6 @@
     </wsdl:operation>
     <wsdl:operation name="DeletePlaylist">
       <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/DeletePlaylist" message="tns:IVideoCatalogService_DeletePlaylist_InputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="SetClipToPlaylist">
-      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/SetClipToPlaylist" message="tns:IVideoCatalogService_SetClipToPlaylist_InputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetPlaylistClip">
-      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClip" message="tns:IVideoCatalogService_GetPlaylistClip_InputMessage" />
-      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipResponse" message="tns:IVideoCatalogService_GetPlaylistClip_OutputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="RemovePlaylistClip">
-      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/RemovePlaylistClip" message="tns:IVideoCatalogService_RemovePlaylistClip_InputMessage" />
-    </wsdl:operation>
-    <wsdl:operation name="GetPlaylistClipIDs">
-      <wsdl:input wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipIDs" message="tns:IVideoCatalogService_GetPlaylistClipIDs_InputMessage" />
-      <wsdl:output wsaw:Action="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipIDsResponse" message="tns:IVideoCatalogService_GetPlaylistClipIDs_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
 </wsdl:definitions>

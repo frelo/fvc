@@ -1,8 +1,58 @@
-# fvc
-This repository contains c# scripts for the video content management system Fast video cataloger ( https://videocataloger.com )
+# Fast Video Cataloger — C# script samples
 
-Please visit our Discord here : https://discord.com/invite/Yz4zxRA6Nh
+Sample C# scripts for [Fast Video Cataloger](https://videocataloger.com), the video
+cataloging and search application for Windows.
 
-Updated for FVC 8.6.1.x
+Fast Video Cataloger has a built-in C# scripting console. A script runs inside the running
+application and can reach your catalog, the selection, the video player and the UI — so you
+can automate the parts of your workflow the menus do not cover.
 
-Feel free to use these samples as you want
+**Updated for Fast Video Cataloger 10.3.**
+
+## Documentation
+
+| | |
+|---|---|
+| [Scripting overview](https://videocataloger.com/docs/scripting/) | What scripting can do and how the console works |
+| [Write your first script](https://videocataloger.com/docs/getting-started/first-script/) | Start here if you have not written one before |
+| [Script structure](https://videocataloger.com/docs/getting-started/script-structure/) | How a script is laid out and what it must contain |
+| [IScripting API reference](https://videocataloger.com/docs/api-reference/videocataloger-iscripting/) | Every method the scripting interface exposes |
+| [Developer resources](https://videocataloger.com/developers/) | Scripting, the REST API and the rest of the programmable surface |
+| [Full documentation](https://videocataloger.com/docs/) | The complete user guide |
+
+Fast Video Cataloger 10.3 also ships a REST API and an
+[MCP connector](https://videocataloger.com/docs/server/serving-media/mcp-server/) for
+connecting an AI assistant to a catalog. Those run against the Fast Video Cataloger server
+rather than inside the application — see
+[Let an AI assistant search your video library](https://videocataloger.com/let-an-ai-assistant-search-your-video-library/)
+for when to reach for which.
+
+## Using the samples
+
+Each folder is one sample with its own `.csproj`, and `CatalogerSampleScripts.sln` opens the
+whole set in Visual Studio. The projects are there so you get IntelliSense and compile errors
+while you edit; to actually run a script, paste it into the scripting console inside Fast
+Video Cataloger.
+
+`VideoCataloger/` is the shared project the samples reference — it holds the generated service
+client for talking to the catalog.
+
+A few starting points:
+
+- **HelloWorld** — the smallest script that does something
+- **BasicSelection** — read what the user has selected
+- **FilterToBin** — search the catalog and collect the results into a bin
+- **ExportVideoList** / **ExportThumbs** — get data and images out of a catalog
+- **ImportCSV** / **ImportMDB** — bring metadata in from elsewhere
+- **AutoIndexFolder** — index new files as they appear
+- **CaptureAtPlayhead** — grab the frame currently showing in the player
+- **FindScenesWithFaces**, **LearnActorFaces** — work with the face-recognition data
+- **HelloWPF** — build your own window
+
+## Notes
+
+The projects target .NET Framework 4.8, which is what the scripting host expects.
+
+These samples are provided as a starting point — use and adapt them however you like.
+
+Questions and ideas are welcome on our [Discord](https://discord.com/invite/Yz4zxRA6Nh).

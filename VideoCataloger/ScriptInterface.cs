@@ -2,10 +2,10 @@
 using System.Threading.Tasks;
 using VideoCataloger.RemoteCatalogService;
 using System;
+//    using CefSharp.Wpf; Uncomment to get access to the chromium browser interface
 
 namespace VideoCataloger
 {
-    //    using CefSharp.Wpf; // uncomment if you need to access the chronmium web browser.
 
     ///<summary>
     ///Root of script interface to FVC. An object that implements this interface is passed to the run function.
@@ -39,13 +39,24 @@ namespace VideoCataloger
 
         ///<summary>Get the browser.</summary>
         ///<returns>An interface to the web browser.</returns>
-        ///This is part of the interface but to compile this solution you will need to get the cefsharp nuget package and add it as a reference.
-        ///Do note that you do NOT need to install the package to use the interace from inside Fast video cataloger.
+        //This is part of the interface but to compile this solution you will need to get the cefsharp nuget package and add it as a reference.
+        //Do note that you do NOT need to install the package to use the interface from inside Fast video cataloger.
         //ChromiumWebBrowser GetBrowser();
 
         ///<summary>Get video player.</summary>
         ///<returns>An interface to the video player.</returns>
         IVideoPlayer GetVideoPlayer();
+
+        ///<summary>Get action pipe for actions started by another application.</summary>
+        ///<returns>An interface to the action pipe.</returns>
+        IActionPipe GetActionPipe();
+
+        ///<summary>Get the face recognition service used to detect faces in images and generate face embeddings.
+        ///The face engine is initialized on demand the first time this is called.
+        ///Returns null if face recognition is not available (the AI face models have not been downloaded, see AI settings).</summary>
+        //This is part of the interface but to compile this solution you will need to add a reference to VideoCatalogService.dll
+        //from the Fast Video Cataloger installation folder. You do NOT need the reference to use the interface from inside Fast video cataloger.
+        //global::VideoCatalogService.FaceRecognition.IFaceRecognitionService GetFaceRecognition();
     };
 
     ///<summary>
@@ -56,44 +67,54 @@ namespace VideoCataloger
         ///<summary>Get a list of the currently selected video ids.</summary>
         ///<returns>A list with video ids of the currently selected videos in the catalog window. An emty list if there is no selection.</returns>
         List<long> GetSelectedVideos();
+
         ///<summary>Set the selected videos in the program.</summary>
         ///<param name="new_selection">List with video ids</param>  
         void SetSelectedVideos(List<long> new_selection);
+
         ///<summary>Select one video in the catalog window.</summary>
         ///<param name="video_id">Video id for the video to be selected</param>  
         void SetSelectedVideo(long video_id);
+
         ///<summary>Set no selected video in the video catalog window.</summary>
         void SetNoSelectedVideo();
 
         ///<summary>Get the currently selected playlist. null if no selected playlist</summary>
+        ///<returns>Currently selected Playlist.</returns>
         RemoteCatalogService.VideoPlaylist GetSelectedPlaylist();
+
         ///<summary>Set the currently selected playlist.</summary>
         ///<param name="playlist_id">Playlist id for the playlist to be selected</param>  
         void SetSelectedPlaylist(long playlist_id);
+
         ///<summary>Set the currently selected playlist clip assuming a playlist is selected.</summary>
         ///<param name="clip_id">clip to select</param>  
         void SetSelectedPlaylistClip(int clip_id);
 
-        ///<summary>Get the currently selected playlist. null if no selected playlist</summary>
+        ///<summary>Get the currently selected Bin. null if no selected bin</summary>
+        ///<returns>Currently selected Bin.</returns>
         RemoteCatalogService.Bin GetSelectedBin();
-        ///<summary>Set the currently selected playlist.</summary>
-        ///<param name="bin_id">Playlist id for the playlist to be selected</param>  
+
+        ///<summary>Set the currently selected bin.</summary>
+        ///<param name="bin_id">bin id for the Bin to be selected</param>  
         void SetSelectedBin(long bin_id);
 
         ///<summary>Get the currently selected actor. null if no selected actor</summary>
+        ///<returns>Currently selected Actor.</returns>
         RemoteCatalogService.Actor GetSelectedActor();
 
-        ///<summary>Set the currently selected playlist.</summary>
+        ///<summary>Set the currently selected Actor.</summary>
         ///<param name="actor_id">actor id for the selected actor</param>  
         void SetSelectedActor(long actor_id);
-
 
         ///<summary>Get a list of the currently selected thumbnail ids.</summary>
         ///<returns>A list with video ids of the currently selected thumbnails. An emty list if there is no selection.</returns>
         List<long> GetSelectedThumbnails();
+
         ///<summary>Set the selected thumbnails in the program.</summary>
         ///<param name="new_selection">List with thumbnai ids</param>  
         void SetSelectedThumbnails(List<long> new_selection);
+
         ///<summary>Select one thumbnail in the catalog window.</summary>
         ///<param name="thumbnail_id">Thumbnail id for the video to be selected</param>  
         void SetSelectedThumbnail(long thumbnail_id);
@@ -133,12 +154,41 @@ namespace VideoCataloger
         /// <param name="arguments">Arguments to pass to the script</param>
         void RunScript(string script, string arguments);
 
-        // Load,compile and run a script by calling its main function with the provided arguments
         /// <summary>
+        /// Load,compile and run a script by calling its main function with the provided arguments
         /// Run a script without extra arguments. Errors are outputted to the console window.
         /// </summary>
         /// <param name="script">Path to the script to be run.</param>
         void RunScript(string script);
+
+        ///<summary>
+        /// Return the folder of this script.
+        ///</summary>
+        ///<returns>Path to the last run script folder.</returns>
+        string GetScriptFolder();
+    }
+
+    ///<summary>
+    /// Interface to send a response back to the external application connected to the action pipe.
+    /// The action pipe is a request/response channel: an external application (for example the
+    /// bundled FVC.exe command line tool) sends a message that starts the configured pipe action,
+    /// the message is passed to the script as its arguments parameter, and the script sends its
+    /// response back through this interface. There is no Read function because the incoming
+    /// message has already been delivered as the script arguments.
+    ///</summary>
+    public interface IActionPipe
+    {
+        /// <summary>
+        /// Write a line of text to the connected action pipe client.
+        /// </summary>
+        /// <param name="line">Text to be output</param>
+        void WriteLine(string line);
+
+        /// <summary>
+        /// Write text to the connected action pipe client.
+        /// </summary>
+        /// <param name="line">Text to be written</param>
+        void Write(string line);
     }
 
     ///<summary>
@@ -150,15 +200,81 @@ namespace VideoCataloger
         /// <summary>
         /// Refresh all windows
         /// </summary>
-        /// <param name="hint">Hint on what to refresh, currently ignored</param>
+        /// <param name="hint">Hint on what to refresh, nothing refresh all or pass "bin,playlist,companion" for limited refresh</param>
         void Refresh(string hint);
 
         /// <summary>
-        /// Run a command. A command is anything you can bind a hotkey to. 
+        /// Run a command. A command is anything you can bind a hotkey to.
         /// </summary>
-        /// <param name="command_name">Name of the command as listed in the hotkey editor</param>
-        void RunCommand( string command_name );
+        /// <param name="command_name">Language-independent name of the command (e.g. "Play",
+        /// "CaptureFrame"). The localized name as listed in the hotkey editor is also accepted,
+        /// but scripts using localized names break when the UI language changes.</param>
+        void RunCommand(string command_name);
 
+        /// <summary>
+        /// Run a query and set it to the user interface. 
+        /// </summary>
+        /// <param name="video_query">Video query, this need to be specificed</param>
+        /// <param name="scene_query">Scene query, pass null to only search videos</param>
+        void SetQuery(VideoCataloger.RemoteCatalogService.VideoQuery video_query, VideoCataloger.RemoteCatalogService.SceneQuery scene_query);
+
+
+        /// <summary>
+        /// Check if a window is opened
+        /// </summary>
+        /// <param name="WindowName">
+        /// Pass the name of the window to check as a string.
+        /// VideoDetail
+        /// Attract
+        /// AttractCover
+        /// VideoWall
+        /// AttractWall
+        /// Player
+        /// SelectedVideo
+        /// Help
+        /// Scene
+        /// Console
+        /// CompanionImages
+        /// CompanionImageBrowser
+        /// Covers
+        /// Preview
+        /// Keywording
+        /// Documentation
+        /// Actions
+        /// Cast
+        /// Folder
+        /// Search
+        /// Videos
+        /// Bins
+        /// AddVideos
+        /// Actors
+        /// Playlist
+        /// </param>
+        /// <returns>True if the window is opened</returns>
+        bool IsWindowOpened(string WindowName);
+
+        /// <summary>
+        /// Tell the ui if the script should be possible to cancel
+        /// </summary>
+        /// <param name="can_cancel">True if the script can be cancelled </param>
+        /// <returns>true if the user wants to cancel the script</returns>
+        void SetCancelSupported(bool can_cancel);
+
+        /// <summary>
+        /// Check if a user has requested this script to end
+        /// </summary>
+        /// <returns>true if the user wants to cancel the script</returns>
+        bool IsCancelRequested();
+
+
+        /// <summary>
+        /// Update console progress message
+        /// </summary>
+        /// <param name="value">Current progress, positive integer between min and max. -1 to hide the progress bar.</param>
+        /// <param name="min">Minimum progress value. if min is same or larger than max, the progress is indeterminate and will animate but not show progress</param>
+        /// <param name="max">Maximum progress value</param>
+        /// <param name="message">Progress text message</param>
+        void SetProgress(int value, int min, int max, string message);
     }
 
     ///<summary>
@@ -192,7 +308,6 @@ namespace VideoCataloger
         /// <param name="path">path to convert</param>
         string ConvertFromLocalPath(string path);
     }
-
     // OBS this is NOT the video entry class, this is a helper for intellisense in visual studio
     public class VideoEntry
     {
@@ -213,26 +328,36 @@ namespace VideoCataloger
         public byte[] IV { get; set; }
     };
 
+
     ///<summary>
     /// VideoIndexer interface.
-    /// Use this interface to queue index requests
+    /// Use this interface to control indexing.
     ///</summary>
     public interface IVideoIndexerCallbacks
     {
         /// <summary>
-        /// Called at the start of indexing
+        /// Called at the start of indexing to give an oportunity to cancel indexing.
         /// </summary>
+        /// <param name="video">Video about to be indexed</param>
+        /// <returns>Return true to start indexing or false to skip the video</returns>
         bool StartingIndexing(VideoEntry video);
 
         /// <summary>
         /// Called for each frame. Source unaltered frame from the video
+        /// Note that implementing this function will slow down the indexing process significantly
+        /// The calback gets all image data for the frame and can be used to either alter the iumage
+        /// or to do analysis to determine if the frame should be captured to fast video cataloger.
         /// </summary>
-        /// <returns>true if the frame is to be stored</returns>
+        /// <param name="frame">Frame number of the video frame. zero is the first frame.</param>
+        /// <param name="sample_time">Time of the frame in seconds from the start of the video.</param>
+        /// <param name="image">Bitmap with all image data of the frame.</param>
+        /// <returns>Return true if the frame should be stored in the catalog.</returns>
         bool ProcessFrame(int frame, double sample_time, ref System.Drawing.Bitmap image);
 
         /// <summary>
         /// Video has finished indexing. This is called when the video has finished indexing and have been added to the catalog.
         /// </summary>
+        /// <param name="captured_video">Image about the just finished captured video.</param>
         void VideoIndexedEnd(VideoEntry captured_video);
 
         /// <summary>
@@ -282,14 +407,33 @@ namespace VideoCataloger
 
         /// <summary>
         /// Start processing the index queue.
+        /// If a call to AddFolder or AddVideoFile is still scanning when this is called, the
+        /// request is remembered and indexing starts as soon as that scan has finished, so
+        /// AddFolder followed directly by StartIndexing works as expected.
         /// </summary>
         void StartIndexing();
 
         /// <summary>
+        /// Request that indexing stops. Videos that have already been indexed stay in the catalog
+        /// and the remaining queue is kept, so indexing can be resumed with StartIndexing.
+        /// Does nothing if indexing is not running.
+        /// </summary>
+        void StopIndexing();
+
+        /// <summary>
         /// Set callback interface implementation
         /// </summary>
+        /// <param name="callbacks">Object implementing the IVideoindexerCallbacks interface. Call with null to clear any previously set callbacks</param>
         void SetIndexingCallbacks(IVideoIndexerCallbacks callbacks = null);
+
+        /// <summary>
+        /// Set transcription from an srt file. If there already is a transcription for the video it will be replaced.
+        /// </summary>
+        /// <param name="video_id">Id of video that will get the loaded transcript.</param>
+        /// <param name="path">Path to the srt file to be used for transcription. Please use windows paths and remember you need to use // to get a / in a C# string.</param>
+        void SetTranscription(long video_id, string path);
     }
+
 
     ///<summary>
     /// Interface to control the video player.
@@ -310,8 +454,13 @@ namespace VideoCataloger
         /// <summary>
         /// Seek to a time in the video
         /// </summary>
-        /// <param name="seek_to_ms">ms from start of video.</param>
-        void Seek(double seek_to_ms);
+        /// <param name="seek_to">s from start of video.</param>
+        void Seek(double seek_to);
+
+        /// <summary>
+        /// Get the current play position in seconds
+        /// </summary>
+        double GetPlayPosition();
 
         /// <summary>
         /// Resume playing from pause
@@ -319,9 +468,14 @@ namespace VideoCataloger
         void UnPauseMovie();
 
         /// <summary>
-        /// Pause video
+        /// Toggle Pause of video
         /// </summary>
         void PauseMovie();
+
+        /// <summary>
+        /// Pause movie but do not start it if it is already paused
+        /// </summary>
+        void PauseNoToggleMovie();
 
         /// <summary>
         /// Play video
@@ -336,49 +490,89 @@ namespace VideoCataloger
         /// <summary>
         /// Start playing from the provided time from the start
         /// </summary>
-        /// <param name="seek_to_ms">ms from start of video.</param>
-        Task PlayFromTimeMS(double seek_to_ms);
+        /// <param name="seek_to">s from start of video.</param>
+        Task PlayFromTimeMS(double seek_to);
 
 
         /// <summary>
-        /// Get the current playback speed. 1.0 is normal playback speed.
+        /// Get the current volume of the video player.
         /// </summary>
+        /// <returns>Volume between 0 and 100 where 100 is max volume and 0 is silent.</returns>
+        double GetVolume();
+
+        /// <summary>
+        /// Set the volume of the video player. The volume slider in the player window is updated to match.
+        /// </summary>
+        /// <param name="volume">Volume between 0 and 100 where 100 is max volume and 0 is silent. Values outside the range are clamped.</param>
+        void SetVolume(double volume);
+
+        /// <summary>
+        /// Get the playback speed most recently requested through SetPlaybackRate.
+        /// 1.0 is normal playback speed.
+        /// This is the requested rate, not a measurement of the renderer. The filter
+        /// graph can refuse or negotiate a different rate depending on what the
+        /// container and codec support, so the video may not be playing at this speed.
+        /// To find the speed actually achieved, time the playhead against wall clock.
+        /// </summary>
+        /// <returns>Requested playback rate where 1 is normal speed, 2 is double playback speed.</returns>
         float GetPlaybackRate();
 
         /// <summary>
-        /// Set the speed factor of video playback, 1.0 is normal speed.
-        /// Note that speed is not supported in all video formats.
+        /// Check if a value can be passed to SetPlaybackRate without throwing.
+        /// A valid rate is a positive, finite number. Note that a valid rate can still be
+        /// refused by the filter graph if the video format does not support playback at
+        /// that speed, in which case playback continues at the rate it already had.
         /// </summary>
+        /// <param name="speed_factor">Playback rate to validate, where 1.0 is normal speed.</param>
+        /// <returns>True if the value is a valid playback rate.</returns>
+        bool IsValidPlaybackRate(float speed_factor);
+
+        /// <summary>
+        /// Set the speed factor of video playback, 1.0 is normal speed.
+        /// Note that speed is not supported in all video formats - the graph may refuse
+        /// the rate and keep playing at the one it already had, in which case playback
+        /// is unchanged and no error is reported.
+        /// </summary>
+        /// <param name="speed_factor">Speed factor, must be greater than 0. 1.0 is normal
+        /// speed, 2.0 is double speed, 0.5 is half speed. Reverse playback is not supported.</param>
+        /// <exception cref="System.ArgumentOutOfRangeException">Thrown if speed_factor is
+        /// zero, negative, NaN or infinity.</exception>
         void SetPlaybackRate(float speed_factor);
 
         /// <summary>
         /// Is the video in fullscreen mode?
         /// </summary>
+        /// <returns>True if the video is´in fullscreen mode.</returns>
         bool IsFullscreen();
 
         /// <summary>
         /// Return true if the video is playing
         /// </summary>
+        /// <returns>True if the video is´playing.</returns>
         bool IsVideoPlaying();
 
         /// <summary>
         /// Return true if the video is paused
         /// </summary>
+        /// <returns>True if the video is´paused.</returns>
         bool IsVideoPaused();
 
         /// <summary>
         /// Return true if the video is stopped
         /// </summary>
+        /// <returns>True if the video is´stopped.</returns>
         bool IsVideoStopped();
 
         /// <summary>
         /// Get the path of the video currently selected in the player.
         /// </summary>
+        /// <returns>Full path to the video selected in the video player.</returns>
         string GetSelectedVideoPath();
 
         /// <summary>
         /// Get the video catalog id of the video currently selected in the player.
         /// </summary>
+        /// <returns>ID of the video selected in the video player.</returns>
         long GetSelectedVideoID();
     }
 };

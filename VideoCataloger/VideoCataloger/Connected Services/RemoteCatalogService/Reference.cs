@@ -15,6 +15,208 @@ namespace VideoCataloger.RemoteCatalogService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="VideoClip", Namespace="http://schemas.datacontract.org/2004/07/VideoCatalogService")]
+    [System.SerializableAttribute()]
+    public partial class VideoClip : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double EndTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double StartTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long VideoFileIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double EndTime {
+            get {
+                return this.EndTimeField;
+            }
+            set {
+                if ((this.EndTimeField.Equals(value) != true)) {
+                    this.EndTimeField = value;
+                    this.RaisePropertyChanged("EndTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public int ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double StartTime {
+            get {
+                return this.StartTimeField;
+            }
+            set {
+                if ((this.StartTimeField.Equals(value) != true)) {
+                    this.StartTimeField = value;
+                    this.RaisePropertyChanged("StartTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long VideoFileID {
+            get {
+                return this.VideoFileIDField;
+            }
+            set {
+                if ((this.VideoFileIDField.Equals(value) != true)) {
+                    this.VideoFileIDField = value;
+                    this.RaisePropertyChanged("VideoFileID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="Subtitle", Namespace="http://schemas.datacontract.org/2004/07/VideoCatalogService")]
+    [System.SerializableAttribute()]
+    public partial class Subtitle : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double EndTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private double StartTimeField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string TextField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long VideoFileIDField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double EndTime {
+            get {
+                return this.EndTimeField;
+            }
+            set {
+                if ((this.EndTimeField.Equals(value) != true)) {
+                    this.EndTimeField = value;
+                    this.RaisePropertyChanged("EndTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long ID {
+            get {
+                return this.IDField;
+            }
+            set {
+                if ((this.IDField.Equals(value) != true)) {
+                    this.IDField = value;
+                    this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public double StartTime {
+            get {
+                return this.StartTimeField;
+            }
+            set {
+                if ((this.StartTimeField.Equals(value) != true)) {
+                    this.StartTimeField = value;
+                    this.RaisePropertyChanged("StartTime");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Text {
+            get {
+                return this.TextField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.TextField, value) != true)) {
+                    this.TextField = value;
+                    this.RaisePropertyChanged("Text");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long VideoFileID {
+            get {
+                return this.VideoFileIDField;
+            }
+            set {
+                if ((this.VideoFileIDField.Equals(value) != true)) {
+                    this.VideoFileIDField = value;
+                    this.RaisePropertyChanged("VideoFileID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="SharedRoots", Namespace="http://schemas.datacontract.org/2004/07/VideoCatalogService")]
     [System.SerializableAttribute()]
     public partial class SharedRoots : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -115,6 +317,9 @@ namespace VideoCataloger.RemoteCatalogService {
         private string[] IncludeKeywordsField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string IncludeSubtitleField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private bool IsIncludeCategoriesANDField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -197,6 +402,19 @@ namespace VideoCataloger.RemoteCatalogService {
                 if ((object.ReferenceEquals(this.IncludeKeywordsField, value) != true)) {
                     this.IncludeKeywordsField = value;
                     this.RaisePropertyChanged("IncludeKeywords");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string IncludeSubtitle {
+            get {
+                return this.IncludeSubtitleField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.IncludeSubtitleField, value) != true)) {
+                    this.IncludeSubtitleField = value;
+                    this.RaisePropertyChanged("IncludeSubtitle");
                 }
             }
         }
@@ -607,7 +825,7 @@ namespace VideoCataloger.RemoteCatalogService {
         EQUAL = 2,
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
-        NOT_EUAL = 3,
+        NOT_EQUAL = 3,
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
@@ -1402,7 +1620,13 @@ namespace VideoCataloger.RemoteCatalogService {
         private uint ColorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private int IDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LinkField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
@@ -1434,6 +1658,19 @@ namespace VideoCataloger.RemoteCatalogService {
         }
         
         [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
         public int ID {
             get {
                 return this.IDField;
@@ -1442,6 +1679,19 @@ namespace VideoCataloger.RemoteCatalogService {
                 if ((this.IDField.Equals(value) != true)) {
                     this.IDField = value;
                     this.RaisePropertyChanged("ID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Link {
+            get {
+                return this.LinkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LinkField, value) != true)) {
+                    this.LinkField = value;
+                    this.RaisePropertyChanged("Link");
                 }
             }
         }
@@ -1495,6 +1745,15 @@ namespace VideoCataloger.RemoteCatalogService {
         private uint ColorField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string DescriptionField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private byte[] ImageField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string LinkField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
         private string NameField;
         
         [System.Runtime.Serialization.OptionalFieldAttribute()]
@@ -1522,6 +1781,45 @@ namespace VideoCataloger.RemoteCatalogService {
                 if ((this.ColorField.Equals(value) != true)) {
                     this.ColorField = value;
                     this.RaisePropertyChanged("Color");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Description {
+            get {
+                return this.DescriptionField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.DescriptionField, value) != true)) {
+                    this.DescriptionField = value;
+                    this.RaisePropertyChanged("Description");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public byte[] Image {
+            get {
+                return this.ImageField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.ImageField, value) != true)) {
+                    this.ImageField = value;
+                    this.RaisePropertyChanged("Image");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Link {
+            get {
+                return this.LinkField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.LinkField, value) != true)) {
+                    this.LinkField = value;
+                    this.RaisePropertyChanged("Link");
                 }
             }
         }
@@ -1561,6 +1859,67 @@ namespace VideoCataloger.RemoteCatalogService {
                 if ((this.TagParentIDField.Equals(value) != true)) {
                     this.TagParentIDField = value;
                     this.RaisePropertyChanged("TagParentID");
+                }
+            }
+        }
+        
+        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
+        
+        protected void RaisePropertyChanged(string propertyName) {
+            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
+            if ((propertyChanged != null)) {
+                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
+            }
+        }
+    }
+    
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="TagGroup", Namespace="http://schemas.datacontract.org/2004/07/VideoCatalogService")]
+    [System.SerializableAttribute()]
+    public partial class TagGroup : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
+        
+        [System.NonSerializedAttribute()]
+        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private long GroupIDField;
+        
+        [System.Runtime.Serialization.OptionalFieldAttribute()]
+        private string NameField;
+        
+        [global::System.ComponentModel.BrowsableAttribute(false)]
+        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
+            get {
+                return this.extensionDataField;
+            }
+            set {
+                this.extensionDataField = value;
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public long GroupID {
+            get {
+                return this.GroupIDField;
+            }
+            set {
+                if ((this.GroupIDField.Equals(value) != true)) {
+                    this.GroupIDField = value;
+                    this.RaisePropertyChanged("GroupID");
+                }
+            }
+        }
+        
+        [System.Runtime.Serialization.DataMemberAttribute()]
+        public string Name {
+            get {
+                return this.NameField;
+            }
+            set {
+                if ((object.ReferenceEquals(this.NameField, value) != true)) {
+                    this.NameField = value;
+                    this.RaisePropertyChanged("Name");
                 }
             }
         }
@@ -2478,99 +2837,6 @@ namespace VideoCataloger.RemoteCatalogService {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="VideoClip", Namespace="http://schemas.datacontract.org/2004/07/VideoCatalogService")]
-    [System.SerializableAttribute()]
-    public partial class VideoClip : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
-        
-        [System.NonSerializedAttribute()]
-        private System.Runtime.Serialization.ExtensionDataObject extensionDataField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double EndTimeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private int IDField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private double StartTimeField;
-        
-        [System.Runtime.Serialization.OptionalFieldAttribute()]
-        private long VideoFileIDField;
-        
-        [global::System.ComponentModel.BrowsableAttribute(false)]
-        public System.Runtime.Serialization.ExtensionDataObject ExtensionData {
-            get {
-                return this.extensionDataField;
-            }
-            set {
-                this.extensionDataField = value;
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double EndTime {
-            get {
-                return this.EndTimeField;
-            }
-            set {
-                if ((this.EndTimeField.Equals(value) != true)) {
-                    this.EndTimeField = value;
-                    this.RaisePropertyChanged("EndTime");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public int ID {
-            get {
-                return this.IDField;
-            }
-            set {
-                if ((this.IDField.Equals(value) != true)) {
-                    this.IDField = value;
-                    this.RaisePropertyChanged("ID");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public double StartTime {
-            get {
-                return this.StartTimeField;
-            }
-            set {
-                if ((this.StartTimeField.Equals(value) != true)) {
-                    this.StartTimeField = value;
-                    this.RaisePropertyChanged("StartTime");
-                }
-            }
-        }
-        
-        [System.Runtime.Serialization.DataMemberAttribute()]
-        public long VideoFileID {
-            get {
-                return this.VideoFileIDField;
-            }
-            set {
-                if ((this.VideoFileIDField.Equals(value) != true)) {
-                    this.VideoFileIDField = value;
-                    this.RaisePropertyChanged("VideoFileID");
-                }
-            }
-        }
-        
-        public event System.ComponentModel.PropertyChangedEventHandler PropertyChanged;
-        
-        protected void RaisePropertyChanged(string propertyName) {
-            System.ComponentModel.PropertyChangedEventHandler propertyChanged = this.PropertyChanged;
-            if ((propertyChanged != null)) {
-                propertyChanged(this, new System.ComponentModel.PropertyChangedEventArgs(propertyName));
-            }
-        }
-    }
-    
-    [System.Diagnostics.DebuggerStepThroughAttribute()]
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
     [System.Runtime.Serialization.DataContractAttribute(Name="VideoPlaylist", Namespace="http://schemas.datacontract.org/2004/07/VideoCatalogService")]
     [System.SerializableAttribute()]
     public partial class VideoPlaylist : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -2633,6 +2899,68 @@ namespace VideoCataloger.RemoteCatalogService {
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
     [System.ServiceModel.ServiceContractAttribute(Namespace="http://videocataloger.com/2015", ConfigurationName="RemoteCatalogService.IVideoCatalogService")]
     public interface IVideoCatalogService {
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/SetClipToPlaylist")]
+        void SetClipToPlaylist(long playlist_id, int index, int clip_id);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/SetClipToPlaylist")]
+        System.Threading.Tasks.Task SetClipToPlaylistAsync(long playlist_id, int index, int clip_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClip", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipResponse")]
+        VideoCataloger.RemoteCatalogService.VideoClip GetPlaylistClip(long playlist_id, int index);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClip", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipResponse")]
+        System.Threading.Tasks.Task<VideoCataloger.RemoteCatalogService.VideoClip> GetPlaylistClipAsync(long playlist_id, int index);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/RemovePlaylistClip")]
+        void RemovePlaylistClip(long playlist_id, int clip_id);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/RemovePlaylistClip")]
+        System.Threading.Tasks.Task RemovePlaylistClipAsync(long playlist_id, int clip_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipIDs", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipIDsResponse")]
+        int[] GetPlaylistClipIDs(long playlist_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipIDs", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipIDsResponse")]
+        System.Threading.Tasks.Task<int[]> GetPlaylistClipIDsAsync(long playlist_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/SetSubtitle", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/SetSubtitleResponse")]
+        long SetSubtitle(VideoCataloger.RemoteCatalogService.Subtitle subtitle);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/SetSubtitle", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/SetSubtitleResponse")]
+        System.Threading.Tasks.Task<long> SetSubtitleAsync(VideoCataloger.RemoteCatalogService.Subtitle subtitle);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetSubtitle", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetSubtitleResponse")]
+        VideoCataloger.RemoteCatalogService.Subtitle GetSubtitle(long subtitle_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetSubtitle", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetSubtitleResponse")]
+        System.Threading.Tasks.Task<VideoCataloger.RemoteCatalogService.Subtitle> GetSubtitleAsync(long subtitle_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetAllSubtitles", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetAllSubtitlesResponse")]
+        VideoCataloger.RemoteCatalogService.Subtitle[] GetAllSubtitles(long video_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetAllSubtitles", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetAllSubtitlesResponse")]
+        System.Threading.Tasks.Task<VideoCataloger.RemoteCatalogService.Subtitle[]> GetAllSubtitlesAsync(long video_id);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/RemoveSubtitle")]
+        void RemoveSubtitle(long subtitle_id);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/RemoveSubtitle")]
+        System.Threading.Tasks.Task RemoveSubtitleAsync(long subtitle_id);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/RemoveSubtitlesFromVideo")]
+        void RemoveSubtitlesFromVideo(long video_id);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/RemoveSubtitlesFromVideo")]
+        System.Threading.Tasks.Task RemoveSubtitlesFromVideoAsync(long video_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/SearchSubtitlesFromString", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/SearchSubtitlesFromStringResp" +
+            "onse")]
+        long[] SearchSubtitlesFromString(string search_string, long video_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/SearchSubtitlesFromString", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/SearchSubtitlesFromStringResp" +
+            "onse")]
+        System.Threading.Tasks.Task<long[]> SearchSubtitlesFromStringAsync(string search_string, long video_id);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/SetActiveCatalogInstance")]
         void SetActiveCatalogInstance(long handle);
@@ -2856,7 +3184,52 @@ namespace VideoCataloger.RemoteCatalogService {
             "onse")]
         System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<long, VideoCataloger.RemoteCatalogService.VideoFileEntry>> GetRandomVideoFileEntriesAsync(int max_nof_items);
         
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/CreateTagGroup", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/CreateTagGroupResponse")]
+        long CreateTagGroup(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/CreateTagGroup", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/CreateTagGroupResponse")]
+        System.Threading.Tasks.Task<long> CreateTagGroupAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/DeleteTagGroup")]
+        void DeleteTagGroup(long group_id);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/DeleteTagGroup")]
+        System.Threading.Tasks.Task DeleteTagGroupAsync(long group_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/AddVideoTagToGroup", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/AddVideoTagToGroupResponse")]
+        void AddVideoTagToGroup(long video_tag_id, long group_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/AddVideoTagToGroup", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/AddVideoTagToGroupResponse")]
+        System.Threading.Tasks.Task AddVideoTagToGroupAsync(long video_tag_id, long group_id);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/RemoveVideoTagFromGroup")]
+        void RemoveVideoTagFromGroup(long video_tag_id, long group_id);
+        
+        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/RemoveVideoTagFromGroup")]
+        System.Threading.Tasks.Task RemoveVideoTagFromGroupAsync(long video_tag_id, long group_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetAllTagGroups", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetAllTagGroupsResponse")]
+        VideoCataloger.RemoteCatalogService.TagGroup[] GetAllTagGroups();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetAllTagGroups", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetAllTagGroupsResponse")]
+        System.Threading.Tasks.Task<VideoCataloger.RemoteCatalogService.TagGroup[]> GetAllTagGroupsAsync();
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetVideoTagsInGroup", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetVideoTagsInGroupResponse")]
+        VideoCataloger.RemoteCatalogService.Tag[] GetVideoTagsInGroup(long group_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetVideoTagsInGroup", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetVideoTagsInGroupResponse")]
+        System.Threading.Tasks.Task<VideoCataloger.RemoteCatalogService.Tag[]> GetVideoTagsInGroupAsync(long group_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetGroupsForVideoTag", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetGroupsForVideoTagResponse")]
+        VideoCataloger.RemoteCatalogService.TagGroup[] GetGroupsForVideoTag(long video_tag_id);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetGroupsForVideoTag", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetGroupsForVideoTagResponse")]
+        System.Threading.Tasks.Task<VideoCataloger.RemoteCatalogService.TagGroup[]> GetGroupsForVideoTagAsync(long video_tag_id);
+        
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/ImportActors")]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.VideoClip))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.Subtitle))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.Subtitle[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.SharedRoots))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.VideoQuery))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.ExtendedVideoQuery[]))]
@@ -2879,6 +3252,8 @@ namespace VideoCataloger.RemoteCatalogService {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.TagInstance))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.Tag))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.Tag[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.TagGroup[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.TagGroup))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.Actor[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.Actor))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.ActorQuery))]
@@ -2895,14 +3270,13 @@ namespace VideoCataloger.RemoteCatalogService {
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.VideoGenre))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.Bin[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.Bin))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.VideoClip))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.VideoPlaylist[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(VideoCataloger.RemoteCatalogService.VideoPlaylist))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(long[]))]
+        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(string[]))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<long, VideoCataloger.RemoteCatalogService.VideoFileEntry>))]
         [System.ServiceModel.ServiceKnownTypeAttribute(typeof(System.Collections.Generic.Dictionary<long, VideoCataloger.RemoteCatalogService.ThumbnailEntry>))]
-        [System.ServiceModel.ServiceKnownTypeAttribute(typeof(int[]))]
         void ImportActors(object source, long[] actor_ids);
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/ImportActors")]
@@ -3323,22 +3697,22 @@ namespace VideoCataloger.RemoteCatalogService {
         System.Threading.Tasks.Task<long> GetNofCompanionImagesAsync();
         
         [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetVideoTagUse", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetVideoTagUseResponse")]
-        long GetVideoTagUse(string tag);
+        long GetVideoTagUse(int tag_id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetVideoTagUse", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetVideoTagUseResponse")]
-        System.Threading.Tasks.Task<long> GetVideoTagUseAsync(string tag);
+        System.Threading.Tasks.Task<long> GetVideoTagUseAsync(int tag_id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetThumbTagUse", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetThumbTagUseResponse")]
-        long GetThumbTagUse(string tag);
+        long GetThumbTagUse(int tag_id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetThumbTagUse", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetThumbTagUseResponse")]
-        System.Threading.Tasks.Task<long> GetThumbTagUseAsync(string tag);
+        System.Threading.Tasks.Task<long> GetThumbTagUseAsync(int tag_id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetActorTagUse", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetActorTagUseResponse")]
-        long GetActorTagUse(string tag);
+        long GetActorTagUse(int tag_id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetActorTagUse", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetActorTagUseResponse")]
-        System.Threading.Tasks.Task<long> GetActorTagUseAsync(string tag);
+        System.Threading.Tasks.Task<long> GetActorTagUseAsync(int tag_id);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetSetting", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetSettingResponse")]
         string GetSetting(string key);
@@ -3447,30 +3821,6 @@ namespace VideoCataloger.RemoteCatalogService {
         
         [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/DeletePlaylist")]
         System.Threading.Tasks.Task DeletePlaylistAsync(long playlist_id);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/SetClipToPlaylist")]
-        void SetClipToPlaylist(long playlist_id, int index, int clip_id);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/SetClipToPlaylist")]
-        System.Threading.Tasks.Task SetClipToPlaylistAsync(long playlist_id, int index, int clip_id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClip", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipResponse")]
-        VideoCataloger.RemoteCatalogService.VideoClip GetPlaylistClip(long playlist_id, int index);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClip", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipResponse")]
-        System.Threading.Tasks.Task<VideoCataloger.RemoteCatalogService.VideoClip> GetPlaylistClipAsync(long playlist_id, int index);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/RemovePlaylistClip")]
-        void RemovePlaylistClip(long playlist_id, int clip_id);
-        
-        [System.ServiceModel.OperationContractAttribute(IsOneWay=true, Action="http://videocataloger.com/2015/IVideoCatalogService/RemovePlaylistClip")]
-        System.Threading.Tasks.Task RemovePlaylistClipAsync(long playlist_id, int clip_id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipIDs", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipIDsResponse")]
-        int[] GetPlaylistClipIDs(long playlist_id);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipIDs", ReplyAction="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipIDsResponse")]
-        System.Threading.Tasks.Task<int[]> GetPlaylistClipIDsAsync(long playlist_id);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -3498,6 +3848,86 @@ namespace VideoCataloger.RemoteCatalogService {
         
         public VideoCatalogServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
+        }
+        
+        public void SetClipToPlaylist(long playlist_id, int index, int clip_id) {
+            base.Channel.SetClipToPlaylist(playlist_id, index, clip_id);
+        }
+        
+        public System.Threading.Tasks.Task SetClipToPlaylistAsync(long playlist_id, int index, int clip_id) {
+            return base.Channel.SetClipToPlaylistAsync(playlist_id, index, clip_id);
+        }
+        
+        public VideoCataloger.RemoteCatalogService.VideoClip GetPlaylistClip(long playlist_id, int index) {
+            return base.Channel.GetPlaylistClip(playlist_id, index);
+        }
+        
+        public System.Threading.Tasks.Task<VideoCataloger.RemoteCatalogService.VideoClip> GetPlaylistClipAsync(long playlist_id, int index) {
+            return base.Channel.GetPlaylistClipAsync(playlist_id, index);
+        }
+        
+        public void RemovePlaylistClip(long playlist_id, int clip_id) {
+            base.Channel.RemovePlaylistClip(playlist_id, clip_id);
+        }
+        
+        public System.Threading.Tasks.Task RemovePlaylistClipAsync(long playlist_id, int clip_id) {
+            return base.Channel.RemovePlaylistClipAsync(playlist_id, clip_id);
+        }
+        
+        public int[] GetPlaylistClipIDs(long playlist_id) {
+            return base.Channel.GetPlaylistClipIDs(playlist_id);
+        }
+        
+        public System.Threading.Tasks.Task<int[]> GetPlaylistClipIDsAsync(long playlist_id) {
+            return base.Channel.GetPlaylistClipIDsAsync(playlist_id);
+        }
+        
+        public long SetSubtitle(VideoCataloger.RemoteCatalogService.Subtitle subtitle) {
+            return base.Channel.SetSubtitle(subtitle);
+        }
+        
+        public System.Threading.Tasks.Task<long> SetSubtitleAsync(VideoCataloger.RemoteCatalogService.Subtitle subtitle) {
+            return base.Channel.SetSubtitleAsync(subtitle);
+        }
+        
+        public VideoCataloger.RemoteCatalogService.Subtitle GetSubtitle(long subtitle_id) {
+            return base.Channel.GetSubtitle(subtitle_id);
+        }
+        
+        public System.Threading.Tasks.Task<VideoCataloger.RemoteCatalogService.Subtitle> GetSubtitleAsync(long subtitle_id) {
+            return base.Channel.GetSubtitleAsync(subtitle_id);
+        }
+        
+        public VideoCataloger.RemoteCatalogService.Subtitle[] GetAllSubtitles(long video_id) {
+            return base.Channel.GetAllSubtitles(video_id);
+        }
+        
+        public System.Threading.Tasks.Task<VideoCataloger.RemoteCatalogService.Subtitle[]> GetAllSubtitlesAsync(long video_id) {
+            return base.Channel.GetAllSubtitlesAsync(video_id);
+        }
+        
+        public void RemoveSubtitle(long subtitle_id) {
+            base.Channel.RemoveSubtitle(subtitle_id);
+        }
+        
+        public System.Threading.Tasks.Task RemoveSubtitleAsync(long subtitle_id) {
+            return base.Channel.RemoveSubtitleAsync(subtitle_id);
+        }
+        
+        public void RemoveSubtitlesFromVideo(long video_id) {
+            base.Channel.RemoveSubtitlesFromVideo(video_id);
+        }
+        
+        public System.Threading.Tasks.Task RemoveSubtitlesFromVideoAsync(long video_id) {
+            return base.Channel.RemoveSubtitlesFromVideoAsync(video_id);
+        }
+        
+        public long[] SearchSubtitlesFromString(string search_string, long video_id) {
+            return base.Channel.SearchSubtitlesFromString(search_string, video_id);
+        }
+        
+        public System.Threading.Tasks.Task<long[]> SearchSubtitlesFromStringAsync(string search_string, long video_id) {
+            return base.Channel.SearchSubtitlesFromStringAsync(search_string, video_id);
         }
         
         public void SetActiveCatalogInstance(long handle) {
@@ -3778,6 +4208,62 @@ namespace VideoCataloger.RemoteCatalogService {
         
         public System.Threading.Tasks.Task<System.Collections.Generic.Dictionary<long, VideoCataloger.RemoteCatalogService.VideoFileEntry>> GetRandomVideoFileEntriesAsync(int max_nof_items) {
             return base.Channel.GetRandomVideoFileEntriesAsync(max_nof_items);
+        }
+        
+        public long CreateTagGroup(string name) {
+            return base.Channel.CreateTagGroup(name);
+        }
+        
+        public System.Threading.Tasks.Task<long> CreateTagGroupAsync(string name) {
+            return base.Channel.CreateTagGroupAsync(name);
+        }
+        
+        public void DeleteTagGroup(long group_id) {
+            base.Channel.DeleteTagGroup(group_id);
+        }
+        
+        public System.Threading.Tasks.Task DeleteTagGroupAsync(long group_id) {
+            return base.Channel.DeleteTagGroupAsync(group_id);
+        }
+        
+        public void AddVideoTagToGroup(long video_tag_id, long group_id) {
+            base.Channel.AddVideoTagToGroup(video_tag_id, group_id);
+        }
+        
+        public System.Threading.Tasks.Task AddVideoTagToGroupAsync(long video_tag_id, long group_id) {
+            return base.Channel.AddVideoTagToGroupAsync(video_tag_id, group_id);
+        }
+        
+        public void RemoveVideoTagFromGroup(long video_tag_id, long group_id) {
+            base.Channel.RemoveVideoTagFromGroup(video_tag_id, group_id);
+        }
+        
+        public System.Threading.Tasks.Task RemoveVideoTagFromGroupAsync(long video_tag_id, long group_id) {
+            return base.Channel.RemoveVideoTagFromGroupAsync(video_tag_id, group_id);
+        }
+        
+        public VideoCataloger.RemoteCatalogService.TagGroup[] GetAllTagGroups() {
+            return base.Channel.GetAllTagGroups();
+        }
+        
+        public System.Threading.Tasks.Task<VideoCataloger.RemoteCatalogService.TagGroup[]> GetAllTagGroupsAsync() {
+            return base.Channel.GetAllTagGroupsAsync();
+        }
+        
+        public VideoCataloger.RemoteCatalogService.Tag[] GetVideoTagsInGroup(long group_id) {
+            return base.Channel.GetVideoTagsInGroup(group_id);
+        }
+        
+        public System.Threading.Tasks.Task<VideoCataloger.RemoteCatalogService.Tag[]> GetVideoTagsInGroupAsync(long group_id) {
+            return base.Channel.GetVideoTagsInGroupAsync(group_id);
+        }
+        
+        public VideoCataloger.RemoteCatalogService.TagGroup[] GetGroupsForVideoTag(long video_tag_id) {
+            return base.Channel.GetGroupsForVideoTag(video_tag_id);
+        }
+        
+        public System.Threading.Tasks.Task<VideoCataloger.RemoteCatalogService.TagGroup[]> GetGroupsForVideoTagAsync(long video_tag_id) {
+            return base.Channel.GetGroupsForVideoTagAsync(video_tag_id);
         }
         
         public void ImportActors(object source, long[] actor_ids) {
@@ -4300,28 +4786,28 @@ namespace VideoCataloger.RemoteCatalogService {
             return base.Channel.GetNofCompanionImagesAsync();
         }
         
-        public long GetVideoTagUse(string tag) {
-            return base.Channel.GetVideoTagUse(tag);
+        public long GetVideoTagUse(int tag_id) {
+            return base.Channel.GetVideoTagUse(tag_id);
         }
         
-        public System.Threading.Tasks.Task<long> GetVideoTagUseAsync(string tag) {
-            return base.Channel.GetVideoTagUseAsync(tag);
+        public System.Threading.Tasks.Task<long> GetVideoTagUseAsync(int tag_id) {
+            return base.Channel.GetVideoTagUseAsync(tag_id);
         }
         
-        public long GetThumbTagUse(string tag) {
-            return base.Channel.GetThumbTagUse(tag);
+        public long GetThumbTagUse(int tag_id) {
+            return base.Channel.GetThumbTagUse(tag_id);
         }
         
-        public System.Threading.Tasks.Task<long> GetThumbTagUseAsync(string tag) {
-            return base.Channel.GetThumbTagUseAsync(tag);
+        public System.Threading.Tasks.Task<long> GetThumbTagUseAsync(int tag_id) {
+            return base.Channel.GetThumbTagUseAsync(tag_id);
         }
         
-        public long GetActorTagUse(string tag) {
-            return base.Channel.GetActorTagUse(tag);
+        public long GetActorTagUse(int tag_id) {
+            return base.Channel.GetActorTagUse(tag_id);
         }
         
-        public System.Threading.Tasks.Task<long> GetActorTagUseAsync(string tag) {
-            return base.Channel.GetActorTagUseAsync(tag);
+        public System.Threading.Tasks.Task<long> GetActorTagUseAsync(int tag_id) {
+            return base.Channel.GetActorTagUseAsync(tag_id);
         }
         
         public string GetSetting(string key) {
@@ -4466,38 +4952,6 @@ namespace VideoCataloger.RemoteCatalogService {
         
         public System.Threading.Tasks.Task DeletePlaylistAsync(long playlist_id) {
             return base.Channel.DeletePlaylistAsync(playlist_id);
-        }
-        
-        public void SetClipToPlaylist(long playlist_id, int index, int clip_id) {
-            base.Channel.SetClipToPlaylist(playlist_id, index, clip_id);
-        }
-        
-        public System.Threading.Tasks.Task SetClipToPlaylistAsync(long playlist_id, int index, int clip_id) {
-            return base.Channel.SetClipToPlaylistAsync(playlist_id, index, clip_id);
-        }
-        
-        public VideoCataloger.RemoteCatalogService.VideoClip GetPlaylistClip(long playlist_id, int index) {
-            return base.Channel.GetPlaylistClip(playlist_id, index);
-        }
-        
-        public System.Threading.Tasks.Task<VideoCataloger.RemoteCatalogService.VideoClip> GetPlaylistClipAsync(long playlist_id, int index) {
-            return base.Channel.GetPlaylistClipAsync(playlist_id, index);
-        }
-        
-        public void RemovePlaylistClip(long playlist_id, int clip_id) {
-            base.Channel.RemovePlaylistClip(playlist_id, clip_id);
-        }
-        
-        public System.Threading.Tasks.Task RemovePlaylistClipAsync(long playlist_id, int clip_id) {
-            return base.Channel.RemovePlaylistClipAsync(playlist_id, clip_id);
-        }
-        
-        public int[] GetPlaylistClipIDs(long playlist_id) {
-            return base.Channel.GetPlaylistClipIDs(playlist_id);
-        }
-        
-        public System.Threading.Tasks.Task<int[]> GetPlaylistClipIDsAsync(long playlist_id) {
-            return base.Channel.GetPlaylistClipIDsAsync(playlist_id);
         }
     }
 }

@@ -1,4 +1,6 @@
 ﻿#region samples_import_mdb
+// NOTE: Access (.mdb) import requires the 'System.Data.OleDb' NuGet package to be installed and its DLL available to the app.
+//css_ref System.Data.OleDb;
 
 
 using System;

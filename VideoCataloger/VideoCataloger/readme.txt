@@ -10,3 +10,5 @@ During script development, add your own script to the solution.
 
 To run the scripts you need to either load them from the consol window
 or call from an action in fast video cataloger. 
+
+You might also want to move the whole script folder out of the program files folder.

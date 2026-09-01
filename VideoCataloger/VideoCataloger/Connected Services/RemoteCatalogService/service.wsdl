@@ -1,9 +1,87 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:i0="http://videocataloger.com/2015" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="VideoCatalogService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:i0="http://videocataloger.com/2015" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns="http://tempuri.org/" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" name="VideoCatalogService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:import namespace="http://videocataloger.com/2015" location="" />
   <wsdl:types />
   <wsdl:binding name="BasicHttpBinding_IVideoCatalogService" type="i0:IVideoCatalogService">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SetClipToPlaylist">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetClipToPlaylist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlaylistClip">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemovePlaylistClip">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/RemovePlaylistClip" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlaylistClipIDs">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipIDs" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SetSubtitle">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetSubtitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubtitle">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetSubtitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSubtitles">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetAllSubtitles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSubtitle">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/RemoveSubtitle" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveSubtitlesFromVideo">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/RemoveSubtitlesFromVideo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="SearchSubtitlesFromString">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SearchSubtitlesFromString" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SetActiveCatalogInstance">
       <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetActiveCatalogInstance" style="document" />
       <wsdl:input>
@@ -270,6 +348,63 @@
     </wsdl:operation>
     <wsdl:operation name="GetRandomVideoFileEntries">
       <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetRandomVideoFileEntries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTagGroup">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/CreateTagGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTagGroup">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/DeleteTagGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="AddVideoTagToGroup">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/AddVideoTagToGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveVideoTagFromGroup">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/RemoveVideoTagFromGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllTagGroups">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetAllTagGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVideoTagsInGroup">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetVideoTagsInGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupsForVideoTag">
+      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetGroupsForVideoTag" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -963,36 +1098,6 @@
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
-    </wsdl:operation>
-    <wsdl:operation name="SetClipToPlaylist">
-      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/SetClipToPlaylist" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-    </wsdl:operation>
-    <wsdl:operation name="GetPlaylistClip">
-      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClip" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="RemovePlaylistClip">
-      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/RemovePlaylistClip" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-    </wsdl:operation>
-    <wsdl:operation name="GetPlaylistClipIDs">
-      <soap:operation soapAction="http://videocataloger.com/2015/IVideoCatalogService/GetPlaylistClipIDs" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="VideoCatalogService">

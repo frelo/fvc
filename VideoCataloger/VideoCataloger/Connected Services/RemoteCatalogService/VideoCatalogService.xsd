@@ -1,6 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/VideoCatalogService" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/VideoCatalogService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:complexType name="VideoClip">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EndTime" type="xs:double" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:double" />
+      <xs:element minOccurs="0" name="VideoFileID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="VideoClip" nillable="true" type="tns:VideoClip" />
+  <xs:complexType name="Subtitle">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="EndTime" type="xs:double" />
+      <xs:element minOccurs="0" name="ID" type="xs:long" />
+      <xs:element minOccurs="0" name="StartTime" type="xs:double" />
+      <xs:element minOccurs="0" name="Text" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VideoFileID" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Subtitle" nillable="true" type="tns:Subtitle" />
+  <xs:complexType name="ArrayOfSubtitle">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Subtitle" nillable="true" type="tns:Subtitle" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubtitle" nillable="true" type="tns:ArrayOfSubtitle" />
   <xs:complexType name="SharedRoots">
     <xs:sequence>
       <xs:element minOccurs="0" name="ActorRoot" nillable="true" type="xs:string" />
@@ -16,6 +41,7 @@
       <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IncludeArchives" nillable="true" type="q3:ArrayOflong" />
       <xs:element minOccurs="0" name="IncludeExtendedProperties" nillable="true" type="tns:ArrayOfExtendedVideoQuery" />
       <xs:element xmlns:q4="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="IncludeKeywords" nillable="true" type="q4:ArrayOfstring" />
+      <xs:element minOccurs="0" name="IncludeSubtitle" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="IsIncludeCategoriesAND" type="xs:boolean" />
       <xs:element minOccurs="0" name="IsIncludeExtendedPropertiesAND" type="xs:boolean" />
       <xs:element minOccurs="0" name="IsIncludeKeywordsAND" type="xs:boolean" />
@@ -43,7 +69,7 @@
       <xs:enumeration value="LIKE" />
       <xs:enumeration value="BETWEEN" />
       <xs:enumeration value="EQUAL" />
-      <xs:enumeration value="NOT_EUAL" />
+      <xs:enumeration value="NOT_EQUAL" />
     </xs:restriction>
   </xs:simpleType>
   <xs:element name="QueryType" nillable="true" type="tns:QueryType" />
@@ -175,7 +201,9 @@
   <xs:complexType name="TagInstance">
     <xs:sequence>
       <xs:element minOccurs="0" name="Color" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Link" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TagID" type="xs:int" />
     </xs:sequence>
@@ -184,6 +212,9 @@
   <xs:complexType name="Tag">
     <xs:sequence>
       <xs:element minOccurs="0" name="Color" type="xs:unsignedInt" />
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Image" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="Link" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
       <xs:element minOccurs="0" name="TagID" type="xs:int" />
       <xs:element minOccurs="0" name="TagParentID" type="xs:int" />
@@ -196,6 +227,19 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="ArrayOfTag" nillable="true" type="tns:ArrayOfTag" />
+  <xs:complexType name="ArrayOfTagGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TagGroup" nillable="true" type="tns:TagGroup" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTagGroup" nillable="true" type="tns:ArrayOfTagGroup" />
+  <xs:complexType name="TagGroup">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GroupID" type="xs:long" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TagGroup" nillable="true" type="tns:TagGroup" />
   <xs:complexType name="ArrayOfActor">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="Actor" nillable="true" type="tns:Actor" />
@@ -323,15 +367,6 @@
     </xs:sequence>
   </xs:complexType>
   <xs:element name="Bin" nillable="true" type="tns:Bin" />
-  <xs:complexType name="VideoClip">
-    <xs:sequence>
-      <xs:element minOccurs="0" name="EndTime" type="xs:double" />
-      <xs:element minOccurs="0" name="ID" type="xs:int" />
-      <xs:element minOccurs="0" name="StartTime" type="xs:double" />
-      <xs:element minOccurs="0" name="VideoFileID" type="xs:long" />
-    </xs:sequence>
-  </xs:complexType>
-  <xs:element name="VideoClip" nillable="true" type="tns:VideoClip" />
   <xs:complexType name="ArrayOfVideoPlaylist">
     <xs:sequence>
       <xs:element minOccurs="0" maxOccurs="unbounded" name="VideoPlaylist" nillable="true" type="tns:VideoPlaylist" />
