@@ -51,7 +51,14 @@ A few starting points:
 
 ## Notes
 
-The projects target .NET Framework 4.8, which is what the scripting host expects.
+The `.csproj` files are an editing aid only. They compile `ScriptInterface.cs` and the
+generated service client directly rather than referencing the application, so a sample opens
+and builds on its own and Visual Studio can give you IntelliSense as you write.
+
+They still declare .NET Framework 4.8 — left over from before Fast Video Cataloger moved to
+.NET 10. That target does not decide anything at runtime: a script is compiled and run inside
+the application by its scripting console, so it runs on whatever the application runs on,
+which is .NET 10 from version 10 onwards.
 
 These samples are provided as a starting point — use and adapt them however you like.
 
