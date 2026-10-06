@@ -200,7 +200,9 @@ namespace VideoCataloger
         /// <summary>
         /// Refresh all windows
         /// </summary>
-        /// <param name="hint">Hint on what to refresh, nothing refresh all or pass "bin,playlist,companion" for limited refresh</param>
+        /// <param name="hint">What to refresh. An empty string refreshes everything. Pass "keywords", "bin", "playlist" or "companion" to refresh only that part.
+        /// Use "keywords" after a script has changed keyword names, colours or parents: the Search and Keywording windows read the keyword list when the catalog is
+        /// opened and are never told that the catalog changed underneath them.</param>
         void Refresh(string hint);
 
         /// <summary>
@@ -432,6 +434,25 @@ namespace VideoCataloger
         /// <param name="video_id">Id of video that will get the loaded transcript.</param>
         /// <param name="path">Path to the srt file to be used for transcription. Please use windows paths and remember you need to use // to get a / in a C# string.</param>
         void SetTranscription(long video_id, string path);
+
+        /// <summary>
+        /// Queue a video to be transcribed (speech-to-text) from a separate audio file instead of its own audio,
+        /// for sound recorded apart from the picture. The transcript is stored on the video and replaces any it had.
+        /// Like indexing it is queued: the call returns at once and the transcription runs from the index queue,
+        /// with the speech-to-text model and spoken language set in the preferences.
+        /// </summary>
+        /// <param name="video_id">Id of a video in the catalog.</param>
+        /// <param name="audio_path">Path to the audio file to transcribe, for example a .wav or .mp3. A video file works too.</param>
+        void TranscribeFromAudio(long video_id, string audio_path);
+
+        /// <summary>
+        /// Queue a video to have its metadata read from the file again, without capturing thumbnails.
+        /// The .nfo, MediaInfo, file properties and XMP metadata are read as ticked under Extract metadata
+        /// in the indexing preferences. A value that differs in the file replaces the catalog's, keywords
+        /// in the file are added, and nothing is cleared: an empty value in the file leaves the catalog as it is.
+        /// </summary>
+        /// <param name="video_id">Id of a video in the catalog.</param>
+        void ReadMetadata(long video_id);
     }
 
 

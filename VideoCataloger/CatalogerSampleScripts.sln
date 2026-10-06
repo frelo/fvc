@@ -59,6 +59,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CaptureAtPlayhead", "Captur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SearchTopRated", "SearchTopRated\SearchTopRated.csproj", "{06C529AA-23EC-4138-9D00-0E78E63F5135}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindScenesByDescription", "FindScenesByDescription\FindScenesByDescription.csproj", "{16E07DDC-793E-4868-8555-AC291F186FE0}"
+EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaskSelected", "MaskSelected\MaskSelected.csproj", "{1EEC633C-A032-4A05-9162-9AA5C1525610}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindScenesWithFaces", "FindScenesWithFaces\FindScenesWithFaces.csproj", "{A073D7F8-8E78-4102-A7C7-4555C909F398}"
@@ -183,6 +185,10 @@ Global
 		{06C529AA-23EC-4138-9D00-0E78E63F5135}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{06C529AA-23EC-4138-9D00-0E78E63F5135}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{06C529AA-23EC-4138-9D00-0E78E63F5135}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{16E07DDC-793E-4868-8555-AC291F186FE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{16E07DDC-793E-4868-8555-AC291F186FE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{16E07DDC-793E-4868-8555-AC291F186FE0}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{16E07DDC-793E-4868-8555-AC291F186FE0}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{1EEC633C-A032-4A05-9162-9AA5C1525610}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{1EEC633C-A032-4A05-9162-9AA5C1525610}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1EEC633C-A032-4A05-9162-9AA5C1525610}.Release|Any CPU.ActiveCfg = Debug|Any CPU

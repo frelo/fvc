@@ -155,7 +155,25 @@ class Script
 
         // Existing embeddings per actor, plus a set of already-learned image keys so we
         // never learn the same image twice.
-        var all_embeddings = await Task.Run(() => catalog.GetAllActorEmbeddings());
+        //
+        // Read them a page at a time rather than with GetAllActorEmbeddings(). With the catalog
+        // server running the reply travels over MTOM, which gives every embedding blob its own
+        // MIME part and refuses a message holding more than 1000 of them, so on a catalog with a
+        // few hundred actors asking for the whole set at once fails outright.
+        const int embedding_page_size = 400;
+        var all_embeddings = new List<VideoCataloger.RemoteCatalogService.ActorFaceEmbeddingEntry>();
+        int embedding_skip = 0;
+        while (true)
+        {
+            int skip = embedding_skip;
+            var page = await Task.Run(() => catalog.GetActorEmbeddingsPage(skip, embedding_page_size));
+            if (page == null || page.Length == 0)
+                break;
+            all_embeddings.AddRange(page);
+            if (page.Length < embedding_page_size)
+                break;  // a short page is the last one
+            embedding_skip += page.Length;
+        }
         var embeddings_by_actor = new Dictionary<long, List<VideoCatalogService.FaceRecognition.FaceEmbedding>>();
         var learned_sources = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
         if (all_embeddings != null)
@@ -177,9 +195,32 @@ class Script
             }
         }
 
+        // How many learned faces one actor is allowed. Past a couple of dozen each extra face
+        // buys very little and costs something: every new candidate is compared against all of
+        // them, so an actor's matching cost grows with the square of the count. Without a limit
+        // there is no ceiling at all - the script learns from every companion image an actor has,
+        // and an actor can have thousands. Set to 0 to learn from every image, as before.
+        const int max_faces_per_actor = 20;
+
+        // Candidates to run face detection on per actor, drawn at random from everything that
+        // actor has. Detection is the expensive part and it used to run on every image before
+        // anything was learned, so an actor with thousands of images paid for thousands of
+        // detections to keep at most a handful. Random rather than the first N because companion
+        // images come in shoots - the first N are usually one session, one set of lighting, which
+        // is the opposite of the variety a face set wants. The margin over the face limit covers
+        // images that fail to load or hold no usable face.
+        const int candidates_per_face = 3;
+        var rng = new Random();
+
         int total_learned = 0;
         int total_failed = 0;
         int total_skipped = 0;
+        // Unreadable images are counted rather than printed one by one. On a catalog whose
+        // companion images have moved or been deleted this is most of the run, and a console
+        // line each made the script take far longer than the work it was doing.
+        int total_unreadable = 0;
+        string first_unreadable = null;
+        int actors_at_limit = 0;
 
         for (int actor_index = 0; actor_index < actors.Length; ++actor_index)
         {
@@ -199,6 +240,14 @@ class Script
             {
                 existing = new List<VideoCatalogService.FaceRecognition.FaceEmbedding>();
                 embeddings_by_actor[actor.ID] = existing;
+            }
+
+            // Already has as many faces as it is allowed - nothing to do, and skipping here
+            // avoids reading and detecting on all of that actor's images for nothing.
+            if (max_faces_per_actor > 0 && existing.Count >= max_faces_per_actor)
+            {
+                actors_at_limit++;
+                continue;
             }
 
             // Collect the unlearned images for this actor.
@@ -222,6 +271,25 @@ class Script
             if (candidates.Count == 0)
                 continue;
 
+            // Draw a sample rather than working through everything this actor has. Partial
+            // Fisher-Yates: shuffle only as many entries as we are going to keep, which is enough
+            // to make every candidate equally likely to be picked.
+            if (max_faces_per_actor > 0)
+            {
+                int wanted = (max_faces_per_actor - existing.Count) * candidates_per_face;
+                if (wanted < candidates.Count)
+                {
+                    for (int i = 0; i < wanted; ++i)
+                    {
+                        int j = rng.Next(i, candidates.Count);
+                        string swap = candidates[i];
+                        candidates[i] = candidates[j];
+                        candidates[j] = swap;
+                    }
+                    candidates.RemoveRange(wanted, candidates.Count - wanted);
+                }
+            }
+
             // Detect faces in every candidate, then order single-face images first so an
             // actor with no learned faces gets seeded before any group photos are matched.
             var detected = new List<Tuple<string, VideoCatalogService.FaceRecognition.FaceEmbedding[]>>();
@@ -241,8 +309,13 @@ class Script
                 }
                 if (image_data == null)
                 {
-                    console.WriteLine(actor_name + ": could not read " + image_path);
-                    total_failed++;
+                    // Counted, not printed. A catalog whose companion images have moved leaves
+                    // most of the run in here, and one console line each cost far more than the
+                    // work itself. The first path is kept so the summary can still show where
+                    // the images were expected.
+                    if (first_unreadable == null)
+                        first_unreadable = image_path;
+                    total_unreadable++;
                     continue;
                 }
 
@@ -259,6 +332,14 @@ class Script
 
             foreach (var item in detected)
             {
+                // The sample is deliberately larger than the number of faces wanted, so stop as
+                // soon as the actor is full rather than working through the rest of it.
+                if (max_faces_per_actor > 0 && existing.Count >= max_faces_per_actor)
+                {
+                    actors_at_limit++;
+                    break;
+                }
+
                 string image_path = item.Item1;
                 var faces = item.Item2;
 
@@ -312,5 +393,9 @@ class Script
         gui.SetProgress(-1, 0, 0, "");
         console.WriteLine("");
         console.WriteLine("Done. Learned " + total_learned + " face(s), " + total_skipped + " already learned, " + total_failed + " failed.");
+        if (total_unreadable > 0)
+            console.WriteLine(total_unreadable + " image(s) could not be read, first: " + first_unreadable);
+        if (actors_at_limit > 0)
+            console.WriteLine(actors_at_limit + " actor(s) already had the " + max_faces_per_actor + " face limit - change max_faces_per_actor in the script to learn more.");
     }
 }

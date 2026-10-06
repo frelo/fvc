@@ -7,7 +7,7 @@ Fast Video Cataloger has a built-in C# scripting console. A script runs inside t
 application and can reach your catalog, the selection, the video player and the UI — so you
 can automate the parts of your workflow the menus do not cover.
 
-**Updated for Fast Video Cataloger 10.3.**
+**Updated for Fast Video Cataloger 10.4.**
 
 ## Documentation
 
@@ -20,7 +20,7 @@ can automate the parts of your workflow the menus do not cover.
 | [Developer resources](https://videocataloger.com/developers/) | Scripting, the REST API and the rest of the programmable surface |
 | [Full documentation](https://videocataloger.com/docs/) | The complete user guide |
 
-Fast Video Cataloger 10.3 also ships a REST API and an
+Fast Video Cataloger also ships a REST API and an
 [MCP connector](https://videocataloger.com/docs/server/serving-media/mcp-server/) for
 connecting an AI assistant to a catalog. Those run against the Fast Video Cataloger server
 rather than inside the application — see
@@ -34,8 +34,8 @@ whole set in Visual Studio. The projects are there so you get IntelliSense and c
 while you edit; to actually run a script, paste it into the scripting console inside Fast
 Video Cataloger.
 
-`VideoCataloger/` is the shared project the samples reference — it holds the generated service
-client for talking to the catalog.
+`VideoCataloger/` holds the generated service client for talking to the catalog; the sample
+projects compile it in.
 
 A few starting points:
 
@@ -46,6 +46,8 @@ A few starting points:
 - **ImportCSV** / **ImportMDB** — bring metadata in from elsewhere
 - **AutoIndexFolder** — index new files as they appear
 - **CaptureAtPlayhead** — grab the frame currently showing in the player
+- **FindScenesByDescription** — find scenes by describing them in words, the visual search
+  added in 10.4 ([docs](https://videocataloger.com/docs/samples/find-scenes-by-description/))
 - **FindScenesWithFaces**, **LearnActorFaces** — work with the face-recognition data
 - **HelloWPF** — build your own window
 
@@ -59,6 +61,11 @@ They still declare .NET Framework 4.8 — left over from before Fast Video Catal
 .NET 10. That target does not decide anything at runtime: a script is compiled and run inside
 the application by its scripting console, so it runs on whatever the application runs on,
 which is .NET 10 from version 10 onwards.
+
+The exception is **FindScenesByDescription**, a .NET 10 SDK-style project that references the
+application's own `VideoCataloger.dll` and `VideoCatalogService.dll` for full IntelliSense. It
+builds from the `scripts` folder of an installed Fast Video Cataloger 10.4 or later, not from a
+clone of this repository on its own. The script itself runs from the console either way.
 
 These samples are provided as a starting point — use and adapt them however you like.
 
