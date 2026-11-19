@@ -7,7 +7,7 @@ Fast Video Cataloger has a built-in C# scripting console. A script runs inside t
 application and can reach your catalog, the selection, the video player and the UI — so you
 can automate the parts of your workflow the menus do not cover.
 
-**Updated for Fast Video Cataloger 10.4.**
+**Updated for Fast Video Cataloger 10.6.**
 
 ## Documentation
 
@@ -43,7 +43,9 @@ A few starting points:
 - **BasicSelection** — read what the user has selected
 - **FilterToBin** — search the catalog and collect the results into a bin
 - **ExportVideoList** / **ExportThumbs** — get data and images out of a catalog
-- **ImportCSV** / **ImportMDB** — bring metadata in from elsewhere
+- **ImportCSV** / **ImportDatabase** — bring metadata in from a CSV file or another program's
+  database ([docs](https://videocataloger.com/docs/samples/import-database/))
+- **TagTranscribed** — tag the selected videos by whether they have a transcript
 - **AutoIndexFolder** — index new files as they appear
 - **CaptureAtPlayhead** — grab the frame currently showing in the player
 - **FindScenesByDescription** — find scenes by describing them in words, the visual search

@@ -27,7 +27,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HelloWPF", "HelloWPF\HelloW
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportCSV", "ImportCSV\ImportCSV.csproj", "{36F99176-FF38-492C-AA35-DE6A51328B82}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportMDB", "ImportMDB\ImportMDB.csproj", "{F34B6124-5C20-41FF-AF41-08A7B1467131}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImportDatabase", "ImportDatabase\ImportDatabase.csproj", "{F34B6124-5C20-41FF-AF41-08A7B1467131}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MakePlaylist", "MakePlaylist\MakePlaylist.csproj", "{B2C966F1-F011-4E08-BB66-3E43F3D1EDFF}"
 EndProject
@@ -64,6 +64,8 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MaskSelected", "MaskSelected\MaskSelected.csproj", "{1EEC633C-A032-4A05-9162-9AA5C1525610}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindScenesWithFaces", "FindScenesWithFaces\FindScenesWithFaces.csproj", "{A073D7F8-8E78-4102-A7C7-4555C909F398}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TagTranscribed", "TagTranscribed\TagTranscribed.csproj", "{142D8BF9-95B1-4ECD-A767-B5F565FF356D}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LearnActorFaces", "LearnActorFaces\LearnActorFaces.csproj", "{B0E43ED1-6303-41F3-AA61-6A97B987EBF5}"
 EndProject
@@ -197,6 +199,10 @@ Global
 		{A073D7F8-8E78-4102-A7C7-4555C909F398}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A073D7F8-8E78-4102-A7C7-4555C909F398}.Release|Any CPU.ActiveCfg = Debug|Any CPU
 		{A073D7F8-8E78-4102-A7C7-4555C909F398}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{142D8BF9-95B1-4ECD-A767-B5F565FF356D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{142D8BF9-95B1-4ECD-A767-B5F565FF356D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{142D8BF9-95B1-4ECD-A767-B5F565FF356D}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{142D8BF9-95B1-4ECD-A767-B5F565FF356D}.Release|Any CPU.Build.0 = Debug|Any CPU
 		{B0E43ED1-6303-41F3-AA61-6A97B987EBF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B0E43ED1-6303-41F3-AA61-6A97B987EBF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0E43ED1-6303-41F3-AA61-6A97B987EBF5}.Release|Any CPU.ActiveCfg = Debug|Any CPU

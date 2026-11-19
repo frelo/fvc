@@ -453,6 +453,15 @@ namespace VideoCataloger
         /// </summary>
         /// <param name="video_id">Id of a video in the catalog.</param>
         void ReadMetadata(long video_id);
+
+        /// <summary>
+        /// Queue a video in the catalog to be indexed again, as Index > Reindex file does: its
+        /// thumbnails are captured again with the current indexing preferences. Use it after the
+        /// file has been edited, for example trimmed, so the thumbnails match the new timeline.
+        /// The call returns at once and the work runs from the index queue.
+        /// </summary>
+        /// <param name="video_id">Id of a video in the catalog.</param>
+        void ReindexVideo(long video_id);
     }
 
 
@@ -507,6 +516,15 @@ namespace VideoCataloger
         /// Stop the video
         /// </summary>
         void StopMovie();
+
+        /// <summary>
+        /// Unload the video from the player so that it no longer holds the file open, for a script
+        /// that moves, renames or deletes the file. StopMovie only stops playback; the loaded video
+        /// keeps its file open. The selection in the catalog is not changed; selecting the video again
+        /// loads it. The player lets go of the file a moment after the call returns, so retry a
+        /// file operation that fails with a sharing violation for a second or two.
+        /// </summary>
+        void CloseVideo();
 
         /// <summary>
         /// Start playing from the provided time from the start
